@@ -44,7 +44,7 @@ Faucet Balance:  59000000000000
 
 ```
 
-npx hardhat verify --constructor-args scripts/deploy-verification-arguments.js 0x3b642A9aE56066dcb8968bA6CdED36f0Dc39c40C --network cronos
+npx hardhat verify --constructor-args scripts/deploy-verification-arguments.js 0x3b642A9aE56066dcb8968bA6CdED36f0Dc39c40C --network cronosTestnet
 
 ```
   https://maiar.com/
