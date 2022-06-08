@@ -24,6 +24,7 @@
     "checkJs": false
   },
   "include": ["./index.d.ts", "babel.config.js", "**/*.test.ts", "**/*.test.tsx"],
+  // "include": [],
   "exclude": ["node_modules", "vendor", "public", "src"],
   "compileOnSave": false
 }
