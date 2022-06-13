@@ -1,13 +1,36 @@
-import { t, Trans } from "@lingui/macro";
-import { Box, Grid, Link, Paper, Switch, Tab, Tabs } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { InfoNotification, InfoTooltip, Input, PrimaryButton } from "@olympusdao/component-library";
 import React, { useState } from "react";
+
 import { TokenAllowanceGuard } from "src/components/TokenAllowanceGuard/TokenAllowanceGuard";
-import { GOHM_ADDRESSES, OHM_ADDRESSES, SOHM_ADDRESSES, STAKING_ADDRESSES } from "src/constants/addresses";
+import {
+  GOHM_ADDRESSES,
+  OHM_ADDRESSES,
+  SOHM_ADDRESSES,
+  STAKING_ADDRESSES,
+} from "src/constants/addresses";
 import { useBalance } from "src/hooks/useBalance";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { useLiveBonds } from "src/views/Bond/hooks/useLiveBonds";
+
+import {
+  t,
+  Trans,
+} from "@lingui/macro";
+import {
+  Box,
+  Grid,
+  Link,
+  Paper,
+  Switch,
+  Tab,
+  Tabs,
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
+import {
+  InfoNotification,
+  InfoTooltip,
+  Input,
+  PrimaryButton,
+} from "@olympusdao/component-library";
 
 import { GOHMConversion } from "./components/GOHMConversion";
 import { useStakeToken } from "./hooks/useStakeToken";
@@ -57,14 +80,14 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
 export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
   const networks = useTestableNetworks();
-  const [stakedAssetType, setStakedAssetType] = useState<"sOHM" | "gOHM">("sOHM");
+  const [stakedAssetType, setStakedAssetType] = useState<"sEXO" | "gEXO">("sEXO");
   const [currentAction, setCurrentAction] = useState<"STAKE" | "UNSTAKE">("STAKE");
 
-  const fromToken = currentAction === "STAKE" ? "OHM" : stakedAssetType;
+  const fromToken = currentAction === "STAKE" ? "EXO" : stakedAssetType;
 
   // Max balance stuff
   const [amount, setAmount] = useState("");
-  const addresses = fromToken === "OHM" ? OHM_ADDRESSES : fromToken === "sOHM" ? SOHM_ADDRESSES : GOHM_ADDRESSES;
+  const addresses = fromToken === "EXO" ? OHM_ADDRESSES : fromToken === "sEXO" ? SOHM_ADDRESSES : GOHM_ADDRESSES;
   const balance = useBalance(addresses)[networks.MAINNET].data;
   const setMax = () => balance && setAmount(balance.toString());
 
@@ -86,7 +109,7 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
     <StyledBox mb={3}>
       {currentAction === "UNSTAKE" && liveInverseBonds && (
         <InfoNotification>
-          {t`Unstaking your OHM? Trade for Treasury Stables with no slippage & zero trading fees via`}
+          {t`Unstaking your EXO? Trade for Treasury Stables with no slippage & zero trading fees via`}
           &nbsp;
           <Link href={`#/bonds`}>{t`Inverse Bonds`}</Link>
         </InfoNotification>
@@ -115,15 +138,15 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
           message={
             currentAction === "STAKE" ? (
               <>
-                <Trans>First time staking</Trans> <b>OHM</b>?
+                <Trans>First time staking</Trans> <b>EXO</b>?
                 <br />
-                <Trans>Please approve Olympus DAO to use your</Trans> <b>OHM</b> <Trans>for staking</Trans>.
+                <Trans>Please approve Exodus DAO to use your</Trans> <b>EXO</b> <Trans>for staking</Trans>.
               </>
             ) : (
               <>
                 <Trans>First time unstaking</Trans> <b>{fromToken}</b>?
                 <br />
-                <Trans>Please approve Olympus DAO to use your</Trans> <b>{fromToken}</b> <Trans>for unstaking</Trans>.
+                <Trans>Please approve Exodus DAO to use your</Trans> <b>{fromToken}</b> <Trans>for unstaking</Trans>.
               </>
             )
           }
@@ -169,30 +192,30 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
       <Paper className="ohm-card confirm-dialog">
         <Box display={[null, "flex"]} alignItems="center" justifyContent="space-between">
           <Grid component="label" container alignItems="center" spacing={1} wrap="nowrap">
-            <Grid item>sOHM</Grid>
+            <Grid item>sEXO</Grid>
 
             <Grid item>
               <Switch
                 disabled={isMutating}
                 className="stake-to-ohm-checkbox"
-                checked={stakedAssetType === "gOHM"}
+                checked={stakedAssetType === "gEXO"}
                 inputProps={{ "aria-label": "stake to gohm" }}
-                onChange={(_, checked) => setStakedAssetType(checked ? "gOHM" : "sOHM")}
+                onChange={(_, checked) => setStakedAssetType(checked ? "gEXO" : "sEXO")}
               />
             </Grid>
 
             <Grid item>
-              gOHM
+              gEXO
               <InfoTooltip
                 message={`Toggle to switch between ${
                   currentAction === "STAKE" ? "staking to" : "unstaking from"
-                } sOHM or gOHM`}
+                } sEXO or gEXO`}
               />
             </Grid>
           </Grid>
 
           <Box marginTop={[2, 0]} flexShrink={0}>
-            {stakedAssetType === "gOHM" && <GOHMConversion amount={amount} action={currentAction} />}
+            {stakedAssetType === "gEXO" && <GOHMConversion amount={amount} action={currentAction} />}
           </Box>
         </Box>
       </Paper>

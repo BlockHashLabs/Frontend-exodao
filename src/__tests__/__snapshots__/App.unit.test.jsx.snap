@@ -945,7 +945,7 @@ exports[`<App/> should not render a connection error message when user wallet is
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-rg0wkx-MuiTypography-root"
                   >
-                    Connect your wallet to stake OHM
+                    Connect your wallet to stake EXO
                   </h6>
                 </div>
               </div>
@@ -1127,7 +1127,7 @@ exports[`<App/> should not render a connection error message when user wallet is
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-wETH
+                          gEXO-wETH
                         </p>
                         <svg
                           aria-hidden="true"
@@ -1611,7 +1611,7 @@ exports[`<App/> should not render a connection error message when user wallet is
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-wETH
+                          gEXO-wETH
                         </p>
                         <svg
                           aria-hidden="true"
@@ -1769,7 +1769,7 @@ exports[`<App/> should not render a connection error message when user wallet is
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-AVAX
+                          gEXO-AVAX
                         </p>
                         <svg
                           aria-hidden="true"
@@ -1963,7 +1963,7 @@ exports[`<App/> should not render a connection error message when user wallet is
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-FTM
+                          gEXO-FTM
                         </p>
                         <svg
                           aria-hidden="true"
@@ -2189,7 +2189,7 @@ exports[`<App/> should not render a connection error message when user wallet is
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-wFTM
+                          gEXO-wFTM
                         </p>
                         <svg
                           aria-hidden="true"
@@ -2413,7 +2413,7 @@ exports[`<App/> should not render a connection error message when user wallet is
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-wETH
+                          gEXO-wETH
                         </p>
                         <svg
                           aria-hidden="true"
@@ -2697,7 +2697,7 @@ exports[`<App/> should not render a connection error message when user wallet is
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          jgOHM-gOHM
+                          jgEXO-gEXO
                         </p>
                         <svg
                           aria-hidden="true"
@@ -3168,7 +3168,7 @@ exports[`<App/> should not render a connection error message when user wallet is
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          OHM-DAI-wETH
+                          EXO-DAI-wETH
                         </p>
                         <svg
                           aria-hidden="true"
@@ -3390,7 +3390,7 @@ exports[`<App/> should not render a connection error message when user wallet is
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          wETH-gOHM
+                          wETH-gEXO
                         </p>
                         <svg
                           aria-hidden="true"
@@ -3584,7 +3584,7 @@ exports[`<App/> should not render a connection error message when user wallet is
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          OHM-ETH
+                          EXO-ETH
                         </p>
                         <svg
                           aria-hidden="true"
@@ -4648,7 +4648,7 @@ exports[`<App/> should not render an error message when user wallet is connected
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-rg0wkx-MuiTypography-root"
                   >
-                    Connect your wallet to stake OHM
+                    Connect your wallet to stake EXO
                   </h6>
                 </div>
               </div>
@@ -4830,7 +4830,7 @@ exports[`<App/> should not render an error message when user wallet is connected
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-wETH
+                          gEXO-wETH
                         </p>
                         <svg
                           aria-hidden="true"
@@ -5314,7 +5314,7 @@ exports[`<App/> should not render an error message when user wallet is connected
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-wETH
+                          gEXO-wETH
                         </p>
                         <svg
                           aria-hidden="true"
@@ -5472,7 +5472,7 @@ exports[`<App/> should not render an error message when user wallet is connected
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-AVAX
+                          gEXO-AVAX
                         </p>
                         <svg
                           aria-hidden="true"
@@ -5666,7 +5666,7 @@ exports[`<App/> should not render an error message when user wallet is connected
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-FTM
+                          gEXO-FTM
                         </p>
                         <svg
                           aria-hidden="true"
@@ -5892,7 +5892,7 @@ exports[`<App/> should not render an error message when user wallet is connected
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-wFTM
+                          gEXO-wFTM
                         </p>
                         <svg
                           aria-hidden="true"
@@ -6116,7 +6116,7 @@ exports[`<App/> should not render an error message when user wallet is connected
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-wETH
+                          gEXO-wETH
                         </p>
                         <svg
                           aria-hidden="true"
@@ -6400,7 +6400,7 @@ exports[`<App/> should not render an error message when user wallet is connected
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          jgOHM-gOHM
+                          jgEXO-gEXO
                         </p>
                         <svg
                           aria-hidden="true"
@@ -6871,7 +6871,7 @@ exports[`<App/> should not render an error message when user wallet is connected
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          OHM-DAI-wETH
+                          EXO-DAI-wETH
                         </p>
                         <svg
                           aria-hidden="true"
@@ -7093,7 +7093,7 @@ exports[`<App/> should not render an error message when user wallet is connected
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          wETH-gOHM
+                          wETH-gEXO
                         </p>
                         <svg
                           aria-hidden="true"
@@ -7287,7 +7287,7 @@ exports[`<App/> should not render an error message when user wallet is connected
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          OHM-ETH
+                          EXO-ETH
                         </p>
                         <svg
                           aria-hidden="true"
@@ -8351,7 +8351,7 @@ exports[`<App/> should render an error message when user wallet is connected and
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-rg0wkx-MuiTypography-root"
                   >
-                    Connect your wallet to stake OHM
+                    Connect your wallet to stake EXO
                   </h6>
                 </div>
               </div>
@@ -8533,7 +8533,7 @@ exports[`<App/> should render an error message when user wallet is connected and
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-wETH
+                          gEXO-wETH
                         </p>
                         <svg
                           aria-hidden="true"
@@ -9017,7 +9017,7 @@ exports[`<App/> should render an error message when user wallet is connected and
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-wETH
+                          gEXO-wETH
                         </p>
                         <svg
                           aria-hidden="true"
@@ -9175,7 +9175,7 @@ exports[`<App/> should render an error message when user wallet is connected and
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-AVAX
+                          gEXO-AVAX
                         </p>
                         <svg
                           aria-hidden="true"
@@ -9369,7 +9369,7 @@ exports[`<App/> should render an error message when user wallet is connected and
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-FTM
+                          gEXO-FTM
                         </p>
                         <svg
                           aria-hidden="true"
@@ -9595,7 +9595,7 @@ exports[`<App/> should render an error message when user wallet is connected and
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-wFTM
+                          gEXO-wFTM
                         </p>
                         <svg
                           aria-hidden="true"
@@ -9819,7 +9819,7 @@ exports[`<App/> should render an error message when user wallet is connected and
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          gOHM-wETH
+                          gEXO-wETH
                         </p>
                         <svg
                           aria-hidden="true"
@@ -10103,7 +10103,7 @@ exports[`<App/> should render an error message when user wallet is connected and
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          jgOHM-gOHM
+                          jgEXO-gEXO
                         </p>
                         <svg
                           aria-hidden="true"
@@ -10574,7 +10574,7 @@ exports[`<App/> should render an error message when user wallet is connected and
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          OHM-DAI-wETH
+                          EXO-DAI-wETH
                         </p>
                         <svg
                           aria-hidden="true"
@@ -10796,7 +10796,7 @@ exports[`<App/> should render an error message when user wallet is connected and
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          wETH-gOHM
+                          wETH-gEXO
                         </p>
                         <svg
                           aria-hidden="true"
@@ -10990,7 +10990,7 @@ exports[`<App/> should render an error message when user wallet is connected and
                           class="MuiTypography-root MuiTypography-body1 css-69sme-MuiTypography-root"
                           style="line-height: 1.4; margin-left: 10px; margin-right: 10px;"
                         >
-                          OHM-ETH
+                          EXO-ETH
                         </p>
                         <svg
                           aria-hidden="true"

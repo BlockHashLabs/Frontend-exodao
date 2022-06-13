@@ -129,7 +129,7 @@ const GetOhm: FC = () => {
               Stake
             </Typography>
             <ItemCard
-              tokens={["sOHM", "wsOHM"]}
+              tokens={["sEXO", "wsEXO"]}
               title={t`Stake Now`}
               roi={`${trim(Number(fiveDayRate) * 100, 2)}%`}
               days={t`5 Days`}

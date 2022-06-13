@@ -1,13 +1,12 @@
 import "./ProjectCard.scss";
 
-import { t, Trans } from "@lingui/macro";
-import { ChevronLeft } from "@mui/icons-material";
-import { Container, Grid, LinearProgress, Link, Tooltip, Typography, useMediaQuery } from "@mui/material";
-import { Skeleton } from "@mui/material";
-import { styled, useTheme } from "@mui/material/styles";
-import { Icon, Paper, PrimaryButton, TertiaryButton } from "@olympusdao/component-library";
+import {
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+
 import MarkdownIt from "markdown-it";
-import { useEffect, useMemo, useState } from "react";
 import Countdown from "react-countdown";
 import ReactGA from "react-ga";
 import { Link as RouterLink } from "react-router-dom";
@@ -16,13 +15,27 @@ import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber"
 import { isSupportedChain } from "src/helpers/GiveHelpers";
 import { useAppDispatch } from "src/hooks";
 import { useCurrentIndex } from "src/hooks/useCurrentIndex";
-import { useDonationInfo, useDonorNumbers, useRecipientInfo, useTotalYieldDonated } from "src/hooks/useGiveInfo";
+import {
+  useDonationInfo,
+  useDonorNumbers,
+  useRecipientInfo,
+  useTotalYieldDonated,
+} from "src/hooks/useGiveInfo";
 import { useWeb3Context } from "src/hooks/web3Context";
 import { ChangeAssetType } from "src/slices/interfaces";
 import { error } from "src/slices/MessagesSlice";
-import { GIVE_MAX_DECIMAL_FORMAT, GIVE_MAX_DECIMALS } from "src/views/Give/constants";
-import { GetCorrectContractUnits, GetCorrectStaticUnits } from "src/views/Give/helpers/GetCorrectUnits";
-import { useDecreaseGive, useIncreaseGive } from "src/views/Give/hooks/useEditGive";
+import {
+  GIVE_MAX_DECIMAL_FORMAT,
+  GIVE_MAX_DECIMALS,
+} from "src/views/Give/constants";
+import {
+  GetCorrectContractUnits,
+  GetCorrectStaticUnits,
+} from "src/views/Give/helpers/GetCorrectUnits";
+import {
+  useDecreaseGive,
+  useIncreaseGive,
+} from "src/views/Give/hooks/useEditGive";
 import { useGive } from "src/views/Give/hooks/useGive";
 import {
   CancelCallback,
@@ -33,6 +46,32 @@ import {
 } from "src/views/Give/Interfaces";
 import { ManageDonationModal } from "src/views/Give/ManageDonationModal";
 import { RecipientModal } from "src/views/Give/RecipientModal";
+
+import {
+  t,
+  Trans,
+} from "@lingui/macro";
+import { ChevronLeft } from "@mui/icons-material";
+import {
+  Container,
+  Grid,
+  LinearProgress,
+  Link,
+  Skeleton,
+  Tooltip,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
+import {
+  styled,
+  useTheme,
+} from "@mui/material/styles";
+import {
+  Icon,
+  Paper,
+  PrimaryButton,
+  TertiaryButton,
+} from "@olympusdao/component-library";
 
 const PREFIX = "ProjectCard";
 
@@ -468,7 +507,7 @@ export default function ProjectCard({ project, giveAssetType, changeAssetType, m
       id: depositId,
       amount: depositAmount.toString(GIVE_MAX_DECIMAL_FORMAT),
       recipient: walletAddress,
-      token: "gOHM",
+      token: "gEXO",
     });
   };
 

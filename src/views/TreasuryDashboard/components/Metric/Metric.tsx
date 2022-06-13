@@ -1,8 +1,12 @@
-import { t } from "@lingui/macro";
-import { Metric } from "@olympusdao/component-library";
-import { formatCurrency, formatNumber } from "src/helpers";
+import {
+  formatCurrency,
+  formatNumber,
+} from "src/helpers";
 import { useCurrentIndex } from "src/hooks/useCurrentIndex";
-import { useGohmPrice, useOhmPrice } from "src/hooks/usePrices";
+import {
+  useGohmPrice,
+  useOhmPrice,
+} from "src/hooks/usePrices";
 import {
   useMarketCap,
   useOhmCirculatingSupply,
@@ -12,6 +16,9 @@ import {
   useTreasuryTotalBacking,
 } from "src/hooks/useProtocolMetrics";
 import { useStakingRebaseRate } from "src/hooks/useStakingRebaseRate";
+
+import { t } from "@lingui/macro";
+import { Metric } from "@olympusdao/component-library";
 
 type MetricProps = PropsOf<typeof Metric>;
 type AbstractedMetricProps = Omit<MetricProps, "metric" | "label" | "tooltip" | "isLoading">;
@@ -35,7 +42,7 @@ export const OHMPrice: React.FC<AbstractedMetricProps> = props => {
 
   const _props: MetricProps = {
     ...props,
-    label: "OHM " + t`Price`,
+    label: "EXO " + t`Price`,
   };
 
   if (ohmPrice) _props.metric = formatCurrency(ohmPrice, 2);
@@ -49,7 +56,7 @@ export const SOHMPrice: React.FC<AbstractedMetricProps> = props => {
 
   const _props: MetricProps = {
     ...props,
-    label: "sOHM " + t`Price`,
+    label: "sEXO " + t`Price`,
   };
 
   if (ohmPrice) _props.metric = formatCurrency(ohmPrice, 2);
@@ -79,7 +86,7 @@ export const BackingPerOHM: React.FC<AbstractedMetricProps> = props => {
 
   const _props: MetricProps = {
     ...props,
-    label: t`Liquid Backing per OHM`,
+    label: t`Liquid Backing per EXO`,
     tooltip: t`Liquid Treasury Backing does not include LP OHM, locked assets, or reserves used for RFV backing. It represents the budget the Treasury has for specific market operations which cannot use OHM (inverse bonds, some liquidity provision, OHM incentives, etc)
     `,
   };
@@ -110,11 +117,11 @@ export const GOHMPrice: React.FC<AbstractedMetricProps> = props => {
 
   const _props: MetricProps = {
     ...props,
-    label: "gOHM " + t`Price`,
+    label: "gEXO " + t`Price`,
     tooltip:
-      "gOHM = sOHM * index" +
+      "gEXO = sEXO * index" +
       "\n\n" +
-      t`The price of gOHM is equal to the price of OHM multiplied by the current index`,
+      t`The price of gEXO is equal to the price of EXO multiplied by the current index`,
   };
 
   if (gOhmPrice) _props.metric = formatCurrency(gOhmPrice, 2);

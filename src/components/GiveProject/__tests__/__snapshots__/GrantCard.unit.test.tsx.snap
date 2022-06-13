@@ -533,7 +533,7 @@ exports[`<GrantCard/> should render page 1`] = `
                     <h6
                       class="MuiTypography-root MuiTypography-h6 css-rg0wkx-MuiTypography-root"
                     >
-                      Milestone 1: 100 sOHM
+                      Milestone 1: 100 sEXO
                     </h6>
                     <div>
                       <p>
@@ -976,7 +976,7 @@ exports[`<GrantCard/> should render page with multiple milestones 1`] = `
                     <h6
                       class="MuiTypography-root MuiTypography-h6 css-rg0wkx-MuiTypography-root"
                     >
-                      Milestone 1: 100 sOHM
+                      Milestone 1: 100 sEXO
                     </h6>
                     <div>
                       <p>
@@ -990,7 +990,7 @@ exports[`<GrantCard/> should render page with multiple milestones 1`] = `
                     <h6
                       class="MuiTypography-root MuiTypography-h6 css-rg0wkx-MuiTypography-root"
                     >
-                      Milestone 2: 200 sOHM
+                      Milestone 2: 200 sEXO
                     </h6>
                     <div>
                       <p>
@@ -1417,7 +1417,7 @@ exports[`<GrantCard/> should render page without image 1`] = `
                     <h6
                       class="MuiTypography-root MuiTypography-h6 css-rg0wkx-MuiTypography-root"
                     >
-                      Milestone 1: 100 sOHM
+                      Milestone 1: 100 sEXO
                     </h6>
                     <div>
                       <p>
@@ -1849,7 +1849,7 @@ exports[`<GrantCard/> should render page without milestone description 1`] = `
                     <h6
                       class="MuiTypography-root MuiTypography-h6 css-rg0wkx-MuiTypography-root"
                     >
-                      Milestone 1: 100 sOHM
+                      Milestone 1: 100 sEXO
                     </h6>
                     <div>
                       <p>

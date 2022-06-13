@@ -1,4 +1,3 @@
-import { configureStore } from "@reduxjs/toolkit";
 import { act } from "react-dom/test-utils";
 import ProjectCard, { ProjectDetailsMode } from "src/components/GiveProject/ProjectCard";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
@@ -7,7 +6,12 @@ import * as useWeb3Context from "src/hooks/web3Context";
 import accountReducer from "src/slices/AccountSlice";
 import { mockWeb3Context } from "src/testHelpers";
 
-import { render, screen } from "../../../testUtils";
+import { configureStore } from "@reduxjs/toolkit";
+
+import {
+  render,
+  screen,
+} from "../../../testUtils";
 import CausesDashboard from "../CausesDashboard";
 import { DepositTableRow } from "../DepositRow";
 import Give from "../Give";
@@ -36,13 +40,13 @@ afterEach(() => {
 });
 
 describe("Give View Disconnected", () => {
-  let giveAssetType = "sOHM";
+  let giveAssetType = "sEXO";
 
   const changeGiveAssetType = checked => {
     if (checked) {
-      giveAssetType = "gOHM";
+      giveAssetType = "gEXO";
     } else {
-      giveAssetType = "sOHM";
+      giveAssetType = "sEXO";
     }
   };
 
@@ -110,13 +114,13 @@ describe("Give View Disconnected", () => {
 });
 
 describe("Give View Connected", () => {
-  let giveAssetType = "sOHM";
+  let giveAssetType = "sEXO";
 
   const changeGiveAssetType = checked => {
     if (checked) {
-      giveAssetType = "gOHM";
+      giveAssetType = "gEXO";
     } else {
-      giveAssetType = "sOHM";
+      giveAssetType = "sEXO";
     }
   };
 
@@ -152,7 +156,7 @@ describe("Give View Connected", () => {
   });
 
   it("should render correct units on Deposits Row", async () => {
-    giveAssetType = "gOHM";
+    giveAssetType = "gEXO";
     useCurrentIndex.mockReturnValue({ data: new DecimalBigNumber("100", 9) });
 
     const donationInfo = {
@@ -173,8 +177,8 @@ describe("Give View Connected", () => {
       );
     });
 
-    const sohmBal = await screen.getByText("120 sOHM");
-    const sohmYield = await screen.getByText("10 sOHM");
+    const sohmBal = await screen.getByText("120 sEXO");
+    const sohmYield = await screen.getByText("10 sEXO");
     expect(sohmBal).toBeInTheDocument();
     expect(sohmYield).toBeInTheDocument();
   });
@@ -221,17 +225,17 @@ describe("Give View Connected", () => {
     });
 
     expect(await screen.getByText("2")).toBeInTheDocument();
-    expect(await screen.getByText("gOHM Goal")).toBeInTheDocument();
+    expect(await screen.getByText("gEXO Goal")).toBeInTheDocument();
 
     expect(await screen.getByText("1.2")).toBeInTheDocument();
-    expect(await screen.getByText("Total gOHM Donated")).toBeInTheDocument();
+    expect(await screen.getByText("Total gEXO Donated")).toBeInTheDocument();
 
     expect(await screen.getByText("60%")).toBeInTheDocument();
-    expect(await screen.getByText("of gOHM Goal")).toBeInTheDocument();
+    expect(await screen.getByText("of gEXO Goal")).toBeInTheDocument();
 
-    expect(await screen.getByText("0.1 gOHM")).toBeInTheDocument();
+    expect(await screen.getByText("0.1 gEXO")).toBeInTheDocument();
 
-    giveAssetType = "sOHM";
+    giveAssetType = "sEXO";
     await act(async () => {
       render(
         <ManageDonationModal
@@ -253,20 +257,20 @@ describe("Give View Connected", () => {
     });
 
     const sohmGoal = await screen.getByText("200");
-    const sohmGoalText = await screen.getByText("sOHM Goal");
+    const sohmGoalText = await screen.getByText("sEXO Goal");
     expect(sohmGoal).toBeInTheDocument();
     expect(sohmGoalText).toBeInTheDocument();
 
     const sohmDeposit = await screen.getByText("120");
-    const sohmDepositText = await screen.getByText("Total sOHM Donated");
+    const sohmDepositText = await screen.getByText("Total sEXO Donated");
     expect(sohmDeposit).toBeInTheDocument();
     expect(sohmDepositText).toBeInTheDocument();
 
-    const sohmPctGoalText = await screen.getByText("of sOHM Goal");
+    const sohmPctGoalText = await screen.getByText("of sEXO Goal");
     expect(pctOfGoal).toBeInTheDocument();
     expect(sohmPctGoalText).toBeInTheDocument();
 
-    const sohmYield = await screen.getByText("10 sOHM");
+    const sohmYield = await screen.getByText("10 sEXO");
     expect(sohmYield).toBeInTheDocument();
   });
   */

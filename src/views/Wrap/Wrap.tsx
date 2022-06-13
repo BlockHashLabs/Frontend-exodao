@@ -1,11 +1,26 @@
-import { t } from "@lingui/macro";
-import { Box, Divider, Grid, Link, Typography } from "@mui/material";
-import { Icon, MetricCollection, Paper } from "@olympusdao/component-library";
 import { WalletConnectedGuard } from "src/components/WalletConnectedGuard";
 import { useWeb3Context } from "src/hooks";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 
-import { CurrentIndex, GOHMPrice, SOHMPrice } from "../TreasuryDashboard/components/Metric/Metric";
+import { t } from "@lingui/macro";
+import {
+  Box,
+  Divider,
+  Grid,
+  Link,
+  Typography,
+} from "@mui/material";
+import {
+  Icon,
+  MetricCollection,
+  Paper,
+} from "@olympusdao/component-library";
+
+import {
+  CurrentIndex,
+  GOHMPrice,
+  SOHMPrice,
+} from "../TreasuryDashboard/components/Metric/Metric";
 import { MigrateInputArea } from "./components/MigrateInputArea/MigrateInputArea";
 import { WrapBalances } from "./components/WrapBalances";
 import { WrapInputArea } from "./components/WrapInputArea/WrapInputArea";
@@ -53,7 +68,7 @@ const GOHMExternalLink = () => (
     href="https://docs.olympusdao.finance/main/contracts/tokens#gohm"
   >
     <Box display="flex" alignItems="center">
-      <Typography>gOHM</Typography> <Icon style={{ marginLeft: "5px" }} name="arrow-up" />
+      <Typography>gEXO</Typography> <Icon style={{ marginLeft: "5px" }} name="arrow-up" />
     </Box>
   </Link>
 );
