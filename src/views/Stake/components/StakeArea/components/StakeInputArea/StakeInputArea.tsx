@@ -140,13 +140,13 @@ export const StakeInputArea: React.FC<{ isZoomed: boolean }> = props => {
               <>
                 <Trans>First time staking</Trans> <b>EXO</b>?
                 <br />
-                <Trans>Please approve Exodus DAO to use your</Trans> <b>EXO</b> <Trans>for staking</Trans>.
+                <Trans>Please approve ExoDAO to use your</Trans> <b>EXO</b> <Trans>for staking</Trans>.
               </>
             ) : (
               <>
                 <Trans>First time unstaking</Trans> <b>{fromToken}</b>?
                 <br />
-                <Trans>Please approve Exodus DAO to use your</Trans> <b>{fromToken}</b> <Trans>for unstaking</Trans>.
+                <Trans>Please approve ExoDAO to use your</Trans> <b>{fromToken}</b> <Trans>for unstaking</Trans>.
               </>
             )
           }
