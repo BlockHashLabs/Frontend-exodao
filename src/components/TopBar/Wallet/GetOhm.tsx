@@ -1,12 +1,14 @@
-import { t } from "@lingui/macro";
-import { Box, Fade, Grid, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { GetOnButton, ItemCard, OHMItemCardProps } from "@olympusdao/component-library";
 import { FC } from "react";
+
 import sushiswapImg from "src/assets/sushiswap.png";
 import uniswapImg from "src/assets/uniswap.png";
 import { OHM_ADDRESSES } from "src/constants/addresses";
-import { formatCurrency, formatNumber, parseBigNumber, trim } from "src/helpers";
+import {
+  formatCurrency,
+  formatNumber,
+  parseBigNumber,
+  trim,
+} from "src/helpers";
 import {
   balancerPools,
   beetsPools,
@@ -43,6 +45,20 @@ import {
   CurvePoolTVL,
   useStakePoolTVL,
 } from "src/views/Stake/components/ExternalStakePools/hooks/useStakePoolTVL";
+
+import { t } from "@lingui/macro";
+import {
+  Box,
+  Fade,
+  Grid,
+  Typography,
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
+import {
+  GetOnButton,
+  ItemCard,
+  OHMItemCardProps,
+} from "@olympusdao/component-library";
 
 import { SupplyRatePerBlock } from "./queries";
 
@@ -138,7 +154,8 @@ const GetOhm: FC = () => {
             />
           </>
         )}
-        <Typography variant="h6" className={classes.title}>
+        {/* Temporarily unavailable until bonds are available */}
+        {/* <Typography variant="h6" className={classes.title}>
           Farm Pool
         </Typography>
         {sushiPools.map((pool, index) => (
@@ -167,7 +184,7 @@ const GetOhm: FC = () => {
         ))}
         {curvePools.map((pool, index) => (
           <CurvePools key={index} pool={pool} />
-        ))}
+        ))} */}
 
         <Typography variant="h6" className={classes.title}>
           Vaults

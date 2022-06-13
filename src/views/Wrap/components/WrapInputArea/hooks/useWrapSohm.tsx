@@ -29,9 +29,9 @@ export const useWrapSohm = () => {
 
       if (!balance) throw new Error(t`Please refresh your page and try again`);
 
-      if (_amount.gt(balance)) throw new Error(t`You cannot wrap more than your sOHM balance`);
+      if (_amount.gt(balance)) throw new Error(t`You cannot wrap more than your sEXO balance`);
 
-      if (!contract) throw new Error(t`Please switch to the Ethereum network to wrap your sOHM`);
+      if (!contract) throw new Error(t`Please switch to the Ethereum network to wrap your sEXO`);
 
       if (!address) throw new Error(t`Please refresh your page and try again`);
 
@@ -45,7 +45,7 @@ export const useWrapSohm = () => {
       onSuccess: async (_, amount) => {
         trackGAEvent({
           category: "Wrapping",
-          action: "Wrap sOHM",
+          action: "Wrap sEXO",
           value: new DecimalBigNumber(amount, 9).toApproxNumber(),
         });
 
@@ -58,7 +58,7 @@ export const useWrapSohm = () => {
 
         await Promise.all(promises);
 
-        dispatch(createInfoToast(t`Successfully wrapped sOHM to gOHM`));
+        dispatch(createInfoToast(t`Successfully wrapped sEXO to gEXO`));
       },
     },
   );
