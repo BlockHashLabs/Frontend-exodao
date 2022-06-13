@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, CircularProgress, Grid, Typography } from "@mui/material";
 import { Skeleton } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { PrimaryButton } from "@olympusdao/component-library";
@@ -81,9 +81,17 @@ export const TokenAllowanceGuard: React.FC<{
 
         <Grid item xs={12} sm={isVertical ? 12 : 4}>
           <Box display="flex" alignItems="center" justifyContent="center" mt={[2, isVertical ? 2 : 0]}>
-            <PrimaryButton fullWidth className="" onClick={approveMutation.mutate} disabled={approveMutation.isLoading}>
+            {!approveMutation.isLoading ? (
+               <PrimaryButton fullWidth className="" onClick={approveMutation.mutate} disabled={approveMutation.isLoading}>
+                Approve
+               {/* {approveMutation.isLoading ? t`Approving...` : t`Approve`} */}
+             </PrimaryButton>
+            ): (
+              <CircularProgress />
+            )}
+            {/* <PrimaryButton fullWidth className="" onClick={approveMutation.mutate} disabled={approveMutation.isLoading}>
               {approveMutation.isLoading ? t`Approving...` : t`Approve`}
-            </PrimaryButton>
+            </PrimaryButton> */}
           </Box>
         </Grid>
       </Grid>

@@ -119,7 +119,7 @@ export function RecipientModal({
   const isBalanceLoading = _useSohmBalance.isLoading || _useGohmBalance.isLoading;
 
   const getBalance = (): DecimalBigNumber => {
-    return giveAssetType === "sOHM" ? sohmBalance : gohmBalance;
+    return giveAssetType === "sEXO" ? sohmBalance : gohmBalance;
   };
 
   /**
@@ -141,7 +141,7 @@ export function RecipientModal({
   };
 
   const checkIsDepositAmountValid = (value: string) => {
-    const valueNumber = new DecimalBigNumber(value, giveAssetType === "sOHM" ? 9 : 18);
+    const valueNumber = new DecimalBigNumber(value, giveAssetType === "sEXO" ? 9 : 18);
 
     if (!value || value == "" || valueNumber.eq(ZERO_NUMBER)) {
       setIsDepositAmountValid(false);
@@ -242,7 +242,7 @@ export function RecipientModal({
   /**
    * Indicates the amount retained in the user's wallet after a deposit to the vault.
    *
-   * If a yield direction is being created, it returns the current sOHM balance minus the entered deposit.
+   * If a yield direction is being created, it returns the current sEXO balance minus the entered deposit.
    *
    * @returns DecimalBigNumber instance
    */
@@ -350,12 +350,12 @@ export function RecipientModal({
       <>
         <Grid container alignItems="center" spacing={2}>
           <GiveTokenAllowanceGuard
-            tokenAddressMap={giveAssetType === "sOHM" ? SOHM_ADDRESSES : GOHM_ADDRESSES}
+            tokenAddressMap={giveAssetType === "sEXO" ? SOHM_ADDRESSES : GOHM_ADDRESSES}
             spenderAddressMap={GIVE_ADDRESSES}
             message={
               <>
                 <Trans>Is this your first time donating</Trans> <b>{giveAssetType}</b>?{" "}
-                <Trans>Please approve Olympus DAO to use your </Trans>
+                <Trans>Please approve ExoDAO to use your </Trans>
                 <b>{giveAssetType}</b> <Trans> for donating.</Trans>
               </>
             }
@@ -391,7 +391,7 @@ export function RecipientModal({
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 onChange={(e: any) => handleSetDepositAmount(e.target.value)}
                 error={!isDepositAmountValid}
-                startAdornment={giveAssetType === "sOHM" ? "sOHM" : giveAssetType === "gOHM" ? "gOHM" : "placeholder"}
+                startAdornment={giveAssetType === "sEXO" ? "sEXO" : giveAssetType === "gEXO" ? "gEXO" : "placeholder"}
                 endString={t`Max`}
                 // This uses toString() as it is a specific value and not formatted
                 endStringOnClick={() => handleSetDepositAmount(getMaximumDepositAmount().toString())}
@@ -401,7 +401,7 @@ export function RecipientModal({
               <Typography variant="body2" className="subtext">
                 <Trans>Recipient Address</Trans>
                 <InfoTooltip
-                  message={t`The rebase rewards from the sOHM that you deposit will be redirected to the wallet address that you specify`}
+                  message={t`The rebase rewards from the sEXO that you deposit will be redirected to the wallet address that you specify`}
                   children={null}
                 />
               </Typography>
@@ -512,7 +512,7 @@ export function RecipientModal({
                 <></>
               )}
               <Grid item xs={12} sm={4}>
-                {/* On small screens, the current and new sOHM deposit numbers are stacked and left-aligned,
+                {/* On small screens, the current and new sEXO deposit numbers are stacked and left-aligned,
                       whereas on larger screens, the numbers are on opposing sides of the box. This adjusts the
                       alignment accordingly. */}
                 <Grid container direction="column" alignItems={isSmallScreen ? "flex-start" : "flex-end"}>

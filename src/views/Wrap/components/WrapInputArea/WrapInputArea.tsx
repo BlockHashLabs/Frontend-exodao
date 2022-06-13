@@ -83,13 +83,13 @@ export const WrapInputArea = () => {
               <>
                 <Trans>First time wrapping</Trans> <b>sEXO</b>?
                 <br />
-                <Trans>Please approve Exodus DAO to use your</Trans> <b>sEXO</b> <Trans>for wrapping</Trans>.
+                <Trans>Please approve ExoDAO to use your</Trans> <b>sEXO</b> <Trans>for wrapping</Trans>.
               </>
             ) : (
               <>
                 <Trans>First time unwrapping</Trans> <b>gEXO</b>?
                 <br />
-                <Trans>Please approve Exodus DAO to use your</Trans> <b>gEXO</b> <Trans>for unwrapping</Trans>.
+                <Trans>Please approve ExoDAO to use your</Trans> <b>gEXO</b> <Trans>for unwrapping</Trans>.
               </>
             )
           }

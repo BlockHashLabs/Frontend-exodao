@@ -65,7 +65,7 @@ export const MigrateInputArea = () => {
           spenderAddressMap={MIGRATOR_ADDRESSES}
           message={
             <>
-              <Trans>Please approve Exodus DAO to use your</Trans> <b>wsEXO</b> <Trans>for migrating</Trans>.
+              <Trans>Please approve ExoDAO to use your</Trans> <b>wsEXO</b> <Trans>for migrating</Trans>.
             </>
           }
         >

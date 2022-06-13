@@ -101,7 +101,7 @@ export const BondInputArea: React.VFC<{
               message={
                 <>
                   <Trans>First time bonding</Trans> <b>{props.bond.quoteToken.name}</b>? <br />{" "}
-                  <Trans>Please approve Olympus DAO to use your</Trans> <b>{props.bond.quoteToken.name}</b>{" "}
+                  <Trans>Please approve ExoDAO to use your</Trans> <b>{props.bond.quoteToken.name}</b>{" "}
                   <Trans>for bonding</Trans>.
                 </>
               }
