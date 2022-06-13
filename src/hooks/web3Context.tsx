@@ -76,7 +76,7 @@ const initModal = new Web3Modal({
           1: NETWORKS[1].uri(),
           4: NETWORKS[4].uri(),
           25: NETWORKS[25].uri(),
-          4338: NETWORKS[338].uri(),
+          338: NETWORKS[338].uri(),
           42: NETWORKS[42].uri(),
           42161: NETWORKS[42161].uri(),
           421611: NETWORKS[421611].uri(),
@@ -108,10 +108,10 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
   const [connectionError, setConnectionError] = useState<IConnectionError | null>(null);
   const [address, setAddress] = useState("");
   // NOTE (appleseed): loading eth mainnet as default rpc provider for a non-connected wallet
-  const [provider, setProvider] = useState<JsonRpcProvider>(Providers.getStaticProvider(NetworkId.TESTNET_KOVAN));
-  const [networkId, setNetworkId] = useState(42);
-  const [networkName, setNetworkName] = useState("Kovan Network");
-  const [providerUri, setProviderUri] = useState("https://kovan.infura.io/v3/d18f87039fa947c396337789209ef583/");
+  const [provider, setProvider] = useState<JsonRpcProvider>(Providers.getStaticProvider(NetworkId.MAINNET_CRO));
+  const [networkId, setNetworkId] = useState(338);
+  const [networkName, setNetworkName] = useState("");
+  const [providerUri, setProviderUri] = useState("");
   const [providerInitialized, setProviderInitialized] = useState(false);
 
   const [web3Modal] = useState<Web3Modal>(initModal);

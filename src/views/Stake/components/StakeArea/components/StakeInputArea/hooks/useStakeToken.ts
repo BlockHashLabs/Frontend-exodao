@@ -36,11 +36,21 @@ export const useStakeToken = (toToken: "sOHM" | "gOHM") => {
 
       if (!address) throw new Error(t`Please refresh your page and try again`);
 
-      const shouldRebase = toToken === "sOHM";
+      const shouldRebase = toToken === "sOHM" ? true : false;
 
       const claim = true; // was true before the mint & sync distributor change
       // await ethereum.enable();
-      const transaction = await contract.stake(address, _amount.toBigNumber(), shouldRebase, claim);
+
+      // try {
+      const transaction = await contract.stake(address, amount, shouldRebase, claim);
+      // } catch (error) {
+      //   console.log("address", address);
+      //   console.log("amount", amount);
+      //   console.log("_amount", _amount._value);
+      //   console.log("shouldrebase", shouldRebase);
+      //   console.log("claim", claim);
+      //   console.log("error", error);
+      // }
       txHash = transaction.hash;
       return transaction.wait();
     },

@@ -98,16 +98,11 @@ export const createStaticContract = <TContract extends Contract = Contract>(ABI:
 const createDynamicContract = <TContract extends Contract = Contract>(ABI: ContractInterface) => {
   return (addressMap: AddressMap, asSigner = false) => {
     const { provider, connected, networkId } = useWeb3Context();
-    console.log("checking provider config");
-    console.log(connected);
     return useMemo(() => {
       const address = addressMap[networkId as keyof typeof addressMap];
-      console.log(address);
       if (!address) return null;
 
       const providerOrSigner = asSigner && connected ? provider.getSigner() : provider;
-      console.log("dynamic loggs");
-      console.log(providerOrSigner);
       return new Contract(address, ABI, providerOrSigner) as TContract;
     }, [addressMap, asSigner, connected, networkId, provider]);
   };

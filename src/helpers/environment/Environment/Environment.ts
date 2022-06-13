@@ -58,8 +58,6 @@ export class Environment {
     });
 
   public static getNodeUrls = (networkId: NetworkId) => {
-    console.log("node url");
-    console.log(NetworkId.TESTNET_KOVAN);
     switch (networkId) {
       case NetworkId.MAINNET:
         return this._get({

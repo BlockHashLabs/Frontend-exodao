@@ -38,11 +38,19 @@ export const useUnstakeToken = (fromToken: "sOHM" | "gOHM") => {
 
       if (!address) throw new Error(t`Please refresh your page and try again`);
 
-      const shouldRebase = fromToken === "sOHM";
+      const shouldRebase = fromToken === "sOHM" ? true : false;
 
       const trigger = false; // was true before the mint & sync distributor change
-
-      const transaction = await contract.unstake(address, _amount.toBigNumber(), trigger, shouldRebase);
+      // try {
+      const transaction = await contract.unstake(address, amount, trigger, shouldRebase);
+      // } catch (error) {
+      //   console.log("address", address);
+      //   console.log("amount", amount);
+      //   console.log("_amount", _amount._value);
+      //   console.log("trigger", trigger);
+      //   console.log("shouldRebase", shouldRebase);
+      //   console.log("error", error);
+      // }
       txHash = transaction.hash;
       return transaction.wait();
     },
