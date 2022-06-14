@@ -29,11 +29,12 @@ const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
 const drawerWidth = 280;
 
 type NavDrawerProps = {
+  theme: string;
   mobileOpen: boolean;
   handleDrawerToggle: () => void;
 };
 
-const NavDrawer: React.FC<NavDrawerProps> = ({ mobileOpen, handleDrawerToggle }) => {
+const NavDrawer: React.FC<NavDrawerProps> = ({ theme, mobileOpen, handleDrawerToggle }) => {
   const location = useLocation();
 
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
@@ -61,7 +62,8 @@ const NavDrawer: React.FC<NavDrawerProps> = ({ mobileOpen, handleDrawerToggle })
       disableBackdropTransition={!isIOS}
       disableDiscovery={isIOS}
     >
-      <NavContent />
+      {console.log("drawer", theme)}
+      <NavContent theme={theme} />
     </StyledSwipeableDrawer>
   );
 };

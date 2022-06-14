@@ -242,10 +242,11 @@ function App() {
             <Messages />
             <TopBar theme={theme} toggleTheme={toggleTheme} handleDrawerToggle={handleDrawerToggle} />
             <nav className={classes.drawer}>
+              {console.log("app.js", theme)}
               {isSmallerScreen ? (
-                <NavDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
+                <NavDrawer theme={theme} mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
               ) : (
-                <Sidebar />
+                <Sidebar theme={theme} mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
               )}
             </nav>
 
@@ -265,7 +266,7 @@ function App() {
                 <Route path="/olygive" element={<Navigate to="/give" />} />
                 <Route path="/tyche" element={<Navigate to="/give" />} />
                 <Route path="/olympusdaogive" element={<Navigate to="/give" />} />
-                <Route path="/ohmgive" element={<Navigate to="/give" />} />
+                <Route path="/exogive" element={<Navigate to="/give" />} />
 
                 <Route path="/wrap" element={<Wrap />} />
                 <Route path="/zap" element={<Zap />} />
