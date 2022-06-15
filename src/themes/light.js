@@ -2,10 +2,13 @@ import { switchClasses, tabClasses } from "@mui/material";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import { deepmerge } from "@mui/utils";
 
+import lightLogo from "../assets/Exodus-Vertical-Logo_2.svg"
+
 import fonts from "./fonts";
 import commonSettings, { handleBackdropFilter } from "./global.js";
 
-const lightTheme = {
+export const lightTheme = {
+  logo:lightLogo,
   color: "#181A1D",
   gold: "#F8CC82",
   gray: "#A3A3A3",

@@ -1,19 +1,33 @@
 import "./Give.scss";
 
-import { t } from "@lingui/macro";
-import { Grid, Link, Typography } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { Paper, Tab, TabPanel, Tabs } from "@olympusdao/component-library";
 import { useState } from "react";
-import { Outlet, Route, Routes } from "react-router";
+
+import {
+  Outlet,
+  Route,
+  Routes,
+} from "react-router";
 import { NavLink as RouterLink } from "react-router-dom";
 import { isSupportedChain } from "src/helpers/GiveHelpers";
 import { useV1RedeemableBalance } from "src/hooks/useGiveInfo";
 import { useWeb3Context } from "src/hooks/web3Context";
 import { ChangeAssetType } from "src/slices/interfaces";
 
-import { CallToRedeem } from "./CallToRedeem";
+import { t } from "@lingui/macro";
+import {
+  Grid,
+  Link,
+  Typography,
+} from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import {
+  Paper,
+  Tab,
+  TabPanel,
+  Tabs,
+} from "@olympusdao/component-library";
+
 import CausesDashboard from "./CausesDashboard";
 import { GiveInfo } from "./GiveInfo";
 import { GohmToggle } from "./GohmToggle";
@@ -24,7 +38,7 @@ import RedeemYield from "./RedeemYield";
 import YieldRecipients from "./YieldRecipients";
 
 function Give({ selectedIndex = 0 }) {
-  const [giveAssetType, setGiveAssetType] = useState<"sOHM" | "gOHM">("sOHM");
+  const [giveAssetType, setGiveAssetType] = useState<"sEXO" | "gEXO">("sEXO");
 
   const { address, networkId } = useWeb3Context();
 
@@ -35,7 +49,7 @@ function Give({ selectedIndex = 0 }) {
   const isBreakpointXS = useMediaQuery(theme.breakpoints.down("sm"));
 
   const changeGiveAssetType: ChangeAssetType = (checked: boolean) => {
-    setGiveAssetType(checked ? "gOHM" : "sOHM");
+    setGiveAssetType(checked ? "gEXO" : "sEXO");
   };
 
   return (

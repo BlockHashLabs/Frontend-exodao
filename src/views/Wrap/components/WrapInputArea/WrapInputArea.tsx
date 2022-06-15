@@ -45,12 +45,12 @@ export const WrapInputArea = () => {
             label="Asset"
             disableUnderline
             id="asset-select-first"
-            value={currentAction === "WRAP" ? "sOHM" : "gOHM"}
-            onChange={event => setCurrentAction(event.target.value === "sOHM" ? "WRAP" : "UNWRAP")}
+            value={currentAction === "WRAP" ? "sEXO" : "gEXO"}
+            onChange={event => setCurrentAction(event.target.value === "sEXO" ? "WRAP" : "UNWRAP")}
           >
-            <MenuItem value="sOHM">sOHM</MenuItem>
-            <MenuItem value="gOHM" data-testid="gohm-dropdown-select">
-              gOHM
+            <MenuItem value="sEXO">sEXO</MenuItem>
+            <MenuItem value="gEXO" data-testid="gohm-dropdown-select">
+              gEXO
             </MenuItem>
           </StyledSelect>
         </FormControl>
@@ -64,12 +64,12 @@ export const WrapInputArea = () => {
             label="Asset"
             disableUnderline
             id="asset-select"
-            value={currentAction === "WRAP" ? "gOHM" : "sOHM"}
-            onChange={event => setCurrentAction(event.target.value === "sOHM" ? "UNWRAP" : "WRAP")}
+            value={currentAction === "WRAP" ? "gEXO" : "sEXO"}
+            onChange={event => setCurrentAction(event.target.value === "sEXO" ? "UNWRAP" : "WRAP")}
             data-testid="second-asset-select"
           >
-            <MenuItem value="gOHM">gOHM</MenuItem>
-            <MenuItem value="sOHM">sOHM</MenuItem>
+            <MenuItem value="gEXO">gEXO</MenuItem>
+            <MenuItem value="sEXO">sEXO</MenuItem>
           </StyledSelect>
         </FormControl>
       </Box>
@@ -81,15 +81,15 @@ export const WrapInputArea = () => {
           message={
             currentAction === "WRAP" ? (
               <>
-                <Trans>First time wrapping</Trans> <b>sOHM</b>?
+                <Trans>First time wrapping</Trans> <b>sEXO</b>?
                 <br />
-                <Trans>Please approve Olympus DAO to use your</Trans> <b>sOHM</b> <Trans>for wrapping</Trans>.
+                <Trans>Please approve ExoDAO to use your</Trans> <b>sEXO</b> <Trans>for wrapping</Trans>.
               </>
             ) : (
               <>
-                <Trans>First time unwrapping</Trans> <b>gOHM</b>?
+                <Trans>First time unwrapping</Trans> <b>gEXO</b>?
                 <br />
-                <Trans>Please approve Olympus DAO to use your</Trans> <b>gOHM</b> <Trans>for unwrapping</Trans>.
+                <Trans>Please approve ExoDAO to use your</Trans> <b>gEXO</b> <Trans>for unwrapping</Trans>.
               </>
             )
           }
@@ -105,7 +105,7 @@ export const WrapInputArea = () => {
                   disabled={isMutating}
                   endStringOnClick={setMax}
                   onChange={event => setAmount(event.target.value)}
-                  placeholder={t`Enter an amount of` + ` ${currentAction === "WRAP" ? "sOHM" : "gOHM"}`}
+                  placeholder={t`Enter an amount of` + ` ${currentAction === "WRAP" ? "sEXO" : "gEXO"}`}
                 />
               </Grid>
 
@@ -114,10 +114,10 @@ export const WrapInputArea = () => {
                   {currentAction === "WRAP"
                     ? isMutating
                       ? "Wrapping..."
-                      : "Wrap to gOHM"
+                      : "Wrap to gEXO"
                     : isMutating
                     ? "Unwrapping..."
-                    : "Unwrap from gOHM"}
+                    : "Unwrap from gEXO"}
                 </PrimaryButton>
               </Grid>
             </Grid>

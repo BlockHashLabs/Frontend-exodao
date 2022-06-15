@@ -23,13 +23,13 @@ export const WrapBalances = () => {
       <>
         <DataRow
           isLoading={!wsohmAvax}
-          title={t`wsOHM Balance (Avalanche)`}
-          balance={wsohmAvax?.toString({ decimals: 4, trim: false, format: true }) + ` wsOHM`}
+          title={t`wsEXO Balance (Avalanche)`}
+          balance={wsohmAvax?.toString({ decimals: 4, trim: false, format: true }) + ` wsEXO`}
         />
         <DataRow
           isLoading={!gohmAvax}
-          title={t`gOHM Balance (Avalanche)`}
-          balance={gohmAvax?.toString({ decimals: 4, trim: false, format: true }) + ` gOHM`}
+          title={t`gEXO Balance (Avalanche)`}
+          balance={gohmAvax?.toString({ decimals: 4, trim: false, format: true }) + ` gEXO`}
         />
       </>
     );
@@ -39,13 +39,13 @@ export const WrapBalances = () => {
       <>
         <DataRow
           isLoading={!wsohmArb}
-          title={t`wsOHM Balance (Arbitrum)`}
-          balance={wsohmArb?.toString({ decimals: 4, trim: false, format: true }) + ` wsOHM`}
+          title={t`wsEXO Balance (Arbitrum)`}
+          balance={wsohmArb?.toString({ decimals: 4, trim: false, format: true }) + ` wsEXO`}
         />
         <DataRow
           isLoading={!gohmArb}
-          title={t`gOHM Balance (Arbitrum)`}
-          balance={gohmArb?.toString({ decimals: 4, trim: false, format: true }) + ` gOHM`}
+          title={t`gEXO Balance (Arbitrum)`}
+          balance={gohmArb?.toString({ decimals: 4, trim: false, format: true }) + ` gEXO`}
         />
       </>
     );
@@ -53,14 +53,14 @@ export const WrapBalances = () => {
   return (
     <>
       <DataRow
-        title={t`sOHM Balance`}
+        title={t`sEXO Balance`}
         isLoading={!sohmBalance}
-        balance={sohmBalance?.toString({ decimals: 4, trim: false, format: true }) + ` sOHM`}
+        balance={sohmBalance?.toString({ decimals: 4, trim: false, format: true }) + ` sEXO`}
       />
       <DataRow
-        title={t`gOHM Balance`}
+        title={t`gEXO Balance`}
         isLoading={!gohmMainnet}
-        balance={gohmMainnet?.toString({ decimals: 4, trim: false, format: true }) + ` gOHM`}
+        balance={gohmMainnet?.toString({ decimals: 4, trim: false, format: true }) + ` gEXO`}
       />
     </>
   );

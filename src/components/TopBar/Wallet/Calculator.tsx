@@ -1,8 +1,13 @@
-import { Box, Fade, Grid, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { DottedDataRow, Input, ProgressCircle, Slider } from "@olympusdao/component-library";
-import { FC, useEffect, useState } from "react";
-import { formatNumber, trim } from "src/helpers";
+import {
+  FC,
+  useEffect,
+  useState,
+} from "react";
+
+import {
+  formatNumber,
+  trim,
+} from "src/helpers";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { nonNullable } from "src/helpers/types/nonNullable";
 import {
@@ -18,6 +23,20 @@ import { useProtocolMetrics } from "src/hooks/useProtocolMetrics";
 import { useStakingRebaseRate } from "src/hooks/useStakingRebaseRate";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { NetworkId } from "src/networkDetails";
+
+import {
+  Box,
+  Fade,
+  Grid,
+  Typography,
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
+import {
+  DottedDataRow,
+  Input,
+  ProgressCircle,
+  Slider,
+} from "@olympusdao/component-library";
 
 const PREFIX = "Calculator";
 
@@ -238,7 +257,7 @@ const Calculator: FC = () => {
                 <Typography className={classes.title}>Investment Amount:</Typography>
               </Box>
               <Box display="flex" justifyContent="center" mb="18px">
-                <Typography className={classes.investmentAmount}>{formattedInitialInvestment} OHM</Typography>
+                <Typography className={classes.investmentAmount}>{formattedInitialInvestment} EXO</Typography>
               </Box>
               <Box display="flex" justifyContent="center">
                 <Typography className={classes.runway}>
@@ -255,7 +274,7 @@ const Calculator: FC = () => {
               <Grid item xs={6}>
                 <Input
                   id="amount"
-                  label="sOHM Amount"
+                  label="sEXO Amount"
                   value={initialInvestment}
                   onChange={e => setInitialInvestment(Number(e.target.value))}
                   type="number"
@@ -296,14 +315,14 @@ const Calculator: FC = () => {
           <>
             <Box display="flex" justifyContent="space-around" alignItems="center" mt="18px" mb="18px">
               <Box display="flex" flexDirection="column" textAlign="right" flexGrow={0.33}>
-                <Typography className={classes.progressMetric}>{formattedInitialInvestment} OHM</Typography>
+                <Typography className={classes.progressMetric}>{formattedInitialInvestment} EXO</Typography>
                 <Typography className={classes.progressLabel}>Invested</Typography>
               </Box>
               <Box position="relative">
-                <ProgressCircle balance={formatNumber(totalsOHM, 2)} label="Total OHM" progress={pieValue} />
+                <ProgressCircle balance={formatNumber(totalsOHM, 2)} label="Total EXO" progress={pieValue} />
               </Box>
               <Box display="flex" flexDirection="column" textAlign="left" flexGrow={0.33}>
-                <Typography className={classes.progressMetric}>{formattedProfits} OHM</Typography>
+                <Typography className={classes.progressMetric}>{formattedProfits} EXO</Typography>
                 <Typography className={classes.progressLabel}>ROI in {duration} days</Typography>
               </Box>
             </Box>
@@ -326,10 +345,10 @@ const Calculator: FC = () => {
             </Box>
           </>
         )}
-        <DottedDataRow title="Initial Investment" value={`${formattedInitialInvestment} OHM`} />
+        <DottedDataRow title="Initial Investment" value={`${formattedInitialInvestment} EXO`} />
         {!advanced && <DottedDataRow title="Rebase Rate" value={`${formatNumber(rebaseRate * 100, 4)} %`} />}
         <DottedDataRow title="ROI" value={`${initialInvestment > 0 ? ROI : "0"}%`} />
-        <DottedDataRow title="Total sOHM" value={formatNumber(totalsOHM, 2)} bold />
+        <DottedDataRow title="Total sEXO" value={formatNumber(totalsOHM, 2)} bold />
         <Box display="flex" justifyContent="center" mt={"15px"} textAlign="center">
           <p>
             This is strictly a tool to help Ohmies better estimate potential ROI. The estimates above are based on

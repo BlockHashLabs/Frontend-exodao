@@ -43,8 +43,8 @@ export const MigrateInputArea = () => {
         <Typography>Migrate</Typography>
 
         <FormControl style={{ margin: "0 10px" }} variant="standard">
-          <StyledSelect label="Asset" disableUnderline id="asset-select" value="wsOHM">
-            <MenuItem value="wsOHM">wsOHM</MenuItem>
+          <StyledSelect label="Asset" disableUnderline id="asset-select" value="wsEXO">
+            <MenuItem value="wsEXO">wsEXO</MenuItem>
           </StyledSelect>
         </FormControl>
 
@@ -53,8 +53,8 @@ export const MigrateInputArea = () => {
         </Typography>
 
         <FormControl style={{ margin: "0 10px" }} variant="standard">
-          <StyledSelect value="gOHM" label="Asset" disableUnderline id="asset-select">
-            <MenuItem value="gOHM">gOHM</MenuItem>
+          <StyledSelect value="gEXO" label="Asset" disableUnderline id="asset-select">
+            <MenuItem value="gEXO">gEXO</MenuItem>
           </StyledSelect>
         </FormControl>
       </Box>
@@ -65,7 +65,7 @@ export const MigrateInputArea = () => {
           spenderAddressMap={MIGRATOR_ADDRESSES}
           message={
             <>
-              <Trans>Please approve Olympus DAO to use your</Trans> <b>wsOHM</b> <Trans>for migrating</Trans>.
+              <Trans>Please approve ExoDAO to use your</Trans> <b>wsEXO</b> <Trans>for migrating</Trans>.
             </>
           }
         >
@@ -78,7 +78,7 @@ export const MigrateInputArea = () => {
                   endString={t`Max`}
                   name="amount-input"
                   endStringOnClick={setMax}
-                  placeholder={t`Enter an amount of wsOHM`}
+                  placeholder={t`Enter an amount of wsEXO`}
                   disabled={migrateMutation.isLoading}
                   onChange={event => setAmount(event.target.value)}
                 />

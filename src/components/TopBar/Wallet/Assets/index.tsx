@@ -131,19 +131,19 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
 
   const tokenArray = [
     {
-      symbol: ["OHM"] as OHMTokenStackProps["tokens"],
+      symbol: ["EXO"] as OHMTokenStackProps["tokens"],
       balance: formattedohmBalance,
       assetValue: Number(formattedohmBalance) * ohmPrice,
       alwaysShow: true,
     },
     {
-      symbol: ["OHM"] as OHMTokenStackProps["tokens"],
+      symbol: ["EXO"] as OHMTokenStackProps["tokens"],
       balance: formattedV1OhmBalance,
       label: "(v1)",
       assetValue: Number(formattedV1OhmBalance) * ohmPrice,
     },
     {
-      symbol: ["sOHM"] as OHMTokenStackProps["tokens"],
+      symbol: ["sEXO"] as OHMTokenStackProps["tokens"],
       balance: formattedSOhmBalance,
       timeRemaining:
         nextRebaseDate && `Stakes in ${prettifySeconds((nextRebaseDate.getTime() - new Date().getTime()) / 1000)}`,
@@ -152,11 +152,11 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
       lineThreeLabel: "Rebases per day",
       lineThreeValue:
         Number(formattedSOhmBalance) > 0
-          ? `${trim(rebaseAmountPerDay, 3)} sOHM / ${formatCurrency(rebaseAmountPerDay * ohmPrice, 2)}`
+          ? `${trim(rebaseAmountPerDay, 3)} sEXO / ${formatCurrency(rebaseAmountPerDay * ohmPrice, 2)}`
           : undefined,
     },
     {
-      symbol: ["sOHM"] as OHMTokenStackProps["tokens"],
+      symbol: ["sEXO"] as OHMTokenStackProps["tokens"],
       balance: formattedV1SohmBalance,
       label: "(v1)",
       timeRemaining:
@@ -164,13 +164,13 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
       assetValue: Number(formattedV1SohmBalance) * ohmPrice,
     },
     {
-      symbol: ["wsOHM"] as OHMTokenStackProps["tokens"],
+      symbol: ["wsEXO"] as OHMTokenStackProps["tokens"],
       balance: formattedWsOhmBalance,
       assetValue: gOhmPrice * Number(formattedWsOhmBalance),
       geckoTicker: "governance-ohm",
     },
     {
-      symbol: ["gOHM"] as OHMTokenStackProps["tokens"],
+      symbol: ["gEXO"] as OHMTokenStackProps["tokens"],
       balance: formattedgOhmBalance,
       assetValue: gOhmPrice * Number(formattedgOhmBalance),
       pnl: formattedgOhmBalance ? 0 : formatCurrency(totalGohmBalance.toApproxNumber() * gOhmPriceChange, 2),
@@ -188,7 +188,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
       timeRemaining:
         Date.now() > note.matured ? "Fully Vested" : prettifySecondsInDays((note.matured - Date.now()) / 1000),
       assetValue: note.payout.toApproxNumber() * gOhmPrice,
-      underlyingSymbol: "gOHM",
+      underlyingSymbol: "gEXO",
       pnl: Number(note.payout) === 0 ? 0 : formatCurrency(note.payout.toApproxNumber() * gOhmPriceChange, 2),
       ctaText: "Claim",
       ctaOnClick: () => navigate("/bonds"),
@@ -205,7 +205,7 @@ const AssetsIndex: FC<OHMAssetsProps> = (props: { path?: string }) => {
           <WalletBalance
             title="Balance"
             usdBalance={formatCurrency(walletTotalValueUSD, 2)}
-            underlyingBalance={`${formatNumber(walletTotalValueUSD / ohmPrice, 2)} OHM`}
+            underlyingBalance={`${formatNumber(walletTotalValueUSD / ohmPrice, 2)} EXO`}
           />
         </Box>
         <Box display="flex" flexDirection="row" className={classes.selector} mb="18px" mt="18px">

@@ -39,7 +39,7 @@ export const WrapSwitchNetwork = () => {
     <>
       <Typography variant="body1" style={{ margin: "15px 0 10px 0" }}>
         <Trans>
-          Got wsOHM on Avalanche or Arbitrum? Click below to switch networks and migrate to gOHM (no bridge required!)
+          Got wsEXO on Avalanche or Arbitrum? Click below to switch networks and migrate to gEXO (no bridge required!)
         </Trans>
       </Typography>
 

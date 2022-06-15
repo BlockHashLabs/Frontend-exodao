@@ -3,13 +3,15 @@ import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import { deepmerge } from "@mui/utils";
 
 import navBg from "../assets/images/exod-sidebar.jpg";
+import darkLogo from "../assets/Exodus-Vertical-Logo_2.svg"
 import fonts from "./fonts";
 import commonSettings from "./global.js";
 
 // TODO: Break repeated use color values out into list of consts declared here
 // then set the values in darkTheme using the global color variables
 
-const darkTheme = {
+export const darkTheme = {
+  logo:darkLogo,
   color: "#FAFAFB",
   gold: "#F8CC82",
   goldDimmed: "#042742",

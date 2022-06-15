@@ -27,7 +27,7 @@ export const StakeArea: React.FC = () => {
         </Grid>
       </Box>
 
-      <WalletConnectedGuard message="Connect your wallet to stake OHM">
+      <WalletConnectedGuard message="Connect your wallet to stake EXO">
         <StakeInputArea isZoomed={isZoomed} />
 
         <StakeBalances />

@@ -1,10 +1,12 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import { deepmerge } from "@mui/utils";
 
+import lightLogo from "../assets/Exodus-Vertical-Logo_2.svg"
 import fonts from "./fonts";
 import commonSettings, { handleBackdropFilter } from "./global.js";
 
 export const girthTheme = {
+  logo:lightLogo,
   color: "#EFEFEF",
   gold: "#F8CC82",
   textHighlightColor: "#F4D092",

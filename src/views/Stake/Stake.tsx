@@ -17,7 +17,8 @@ const Stake: React.FC = () => {
     <div id="stake-view">
       <StakeArea />
 
-      <ExternalStakePools />
+      {/* Temporarily removed until bonds are available */}
+      {/* <ExternalStakePools /> */}
     </div>
   );
 };

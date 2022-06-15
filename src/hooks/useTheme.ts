@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { darkTheme } from "../themes/dark";
+import { girthTheme } from "../themes/girth";
+import { lightTheme } from "../themes/light";
 
-const useTheme = (): [string, (e: KeyboardEvent) => void, boolean] => {
+const useTheme = (): [string, (e: KeyboardEvent) => void, boolean, Object] => {
   const [theme, setTheme] = useState("dark");
   const [mounted, setMounted] = useState(false);
 
@@ -21,6 +24,20 @@ const useTheme = (): [string, (e: KeyboardEvent) => void, boolean] => {
     }
   };
 
+  const currentTheme = (theme) => {
+    switch (theme) {
+      case "dark":
+        return darkTheme
+      case "light":
+        return lightTheme
+      case "girth":
+        return girthTheme
+    
+      default:
+        return darkTheme
+    }
+  }
+
   useEffect(() => {
     const localTheme = window.localStorage.getItem("theme");
     window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches && !localTheme
@@ -31,7 +48,7 @@ const useTheme = (): [string, (e: KeyboardEvent) => void, boolean] => {
     setMounted(true);
   }, []);
 
-  return [theme, toggleTheme, mounted];
+  return [theme, toggleTheme, mounted, currentTheme];
 };
 
 export default useTheme;

@@ -1,10 +1,14 @@
-import { configureStore } from "@reduxjs/toolkit";
 import { trim } from "src/helpers";
 import accountReducer from "src/slices/AccountSlice";
 import appReducer from "src/slices/AppSlice";
 import pendingTransactionsReducer from "src/slices/PendingTxnsSlice";
 
-import { render, screen } from "../../../testUtils";
+import { configureStore } from "@reduxjs/toolkit";
+
+import {
+  render,
+  screen,
+} from "../../../testUtils";
 import MigrationModal from "../MigrationModal";
 
 describe("<MigrationModal/>", () => {
@@ -65,8 +69,8 @@ describe("<MigrationModal/>", () => {
     expect(await screen.getByText("Post-migration")).toBeInTheDocument();
 
     // there should be token details table data
-    expect(await screen.getByText("sOHM -> sOHM (v2)")).toBeInTheDocument();
-    expect(await screen.getByText("12.0000 sOHM")).toBeInTheDocument();
+    expect(await screen.getByText("sEXO -> sEXO (v2)")).toBeInTheDocument();
+    expect(await screen.getByText("12.0000 sEXO")).toBeInTheDocument();
 
     // verify that the dialog displays the correct conversion formula
     // prevent regression for bug report:
@@ -74,7 +78,7 @@ describe("<MigrationModal/>", () => {
     const sOHMv2Value =
       (preloadedState.account.balances.sohmV1 * preloadedState.app.currentIndex) / preloadedState.app.currentIndexV1;
     const trimmed = trim(sOHMv2Value, 4);
-    expect(await screen.getByText(`${trimmed} sOHM (v2)`)).toBeInTheDocument();
+    expect(await screen.getByText(`${trimmed} sEXO (v2)`)).toBeInTheDocument();
 
     // screen.debug(undefined, 100000);
     // Approve button should appear as many times as there are v1 asset rows

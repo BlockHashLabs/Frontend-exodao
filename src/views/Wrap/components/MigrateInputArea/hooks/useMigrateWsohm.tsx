@@ -34,7 +34,7 @@ export const useMigrateWsohm = () => {
 
       if (!balance) throw new Error(t`Please refresh your page and try again`);
 
-      if (_amount.gt(balance)) throw new Error(t`You cannot migrate more than your wsOHM balance`);
+      if (_amount.gt(balance)) throw new Error(t`You cannot migrate more than your wsEXO balance`);
 
       const transaction = await contract.migrate(_amount.toBigNumber());
       return transaction.wait();
@@ -46,7 +46,7 @@ export const useMigrateWsohm = () => {
       onSuccess: async (_, amount) => {
         trackGAEvent({
           category: "Migration",
-          action: "Migrate wsOHM",
+          action: "Migrate wsEXO",
           value: new DecimalBigNumber(amount, 18).toApproxNumber(),
         });
 
@@ -59,7 +59,7 @@ export const useMigrateWsohm = () => {
 
         await Promise.all(promises);
 
-        dispatch(createInfoToast(t`Successfully migrated from wsOHM to gOHM`));
+        dispatch(createInfoToast(t`Successfully migrated from wsEXO to gEXO`));
       },
     },
   );

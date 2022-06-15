@@ -1,7 +1,33 @@
 import "../Stake/Stake.scss";
 import "./V1-Stake.scss";
 
-import { t, Trans } from "@lingui/macro";
+import {
+  useCallback,
+  useState,
+} from "react";
+
+import { ethers } from "ethers";
+import {
+  useDispatch,
+  useSelector,
+} from "react-redux";
+import { useNavigate } from "react-router-dom";
+import {
+  LearnMoreButton,
+  MigrateButton,
+} from "src/components/CallToAction/CallToAction";
+import ConnectButton from "src/components/ConnectButton/ConnectButton";
+import { useOldAssetsDetected } from "src/hooks/useOldAssetsDetected";
+import { useWeb3Context } from "src/hooks/web3Context";
+import {
+  isPendingTxn,
+  txnButtonText,
+} from "src/slices/PendingTxnsSlice";
+
+import {
+  t,
+  Trans,
+} from "@lingui/macro";
 import { ExpandMore } from "@mui/icons-material";
 import {
   Accordion,
@@ -15,27 +41,31 @@ import {
   InputAdornment,
   InputLabel,
   OutlinedInput,
+  Skeleton,
   Typography,
 } from "@mui/material";
-import { Skeleton } from "@mui/material";
-import { Tab, TabPanel, Tabs } from "@olympusdao/component-library";
-import { DataRow, Metric, MetricCollection, Paper } from "@olympusdao/component-library";
-import { ethers } from "ethers";
-import { useCallback, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { LearnMoreButton, MigrateButton } from "src/components/CallToAction/CallToAction";
-import ConnectButton from "src/components/ConnectButton/ConnectButton";
-import { useOldAssetsDetected } from "src/hooks/useOldAssetsDetected";
-import { useWeb3Context } from "src/hooks/web3Context";
-import { isPendingTxn, txnButtonText } from "src/slices/PendingTxnsSlice";
+import {
+  DataRow,
+  Metric,
+  MetricCollection,
+  Paper,
+  Tab,
+  TabPanel,
+  Tabs,
+} from "@olympusdao/component-library";
 
 import { trim } from "../../helpers";
 import { DecimalBigNumber } from "../../helpers/DecimalBigNumber/DecimalBigNumber";
-import { useGohmBalance, useSohmBalance } from "../../hooks/useBalance";
+import {
+  useGohmBalance,
+  useSohmBalance,
+} from "../../hooks/useBalance";
 import { useTestableNetworks } from "../../hooks/useTestableNetworks";
 import { error } from "../../slices/MessagesSlice";
-import { changeApproval, changeStake } from "../../slices/StakeThunk";
+import {
+  changeApproval,
+  changeStake,
+} from "../../slices/StakeThunk";
 import { ExternalStakePools } from "../Stake/components/ExternalStakePools/ExternalStakePools";
 import RebaseTimer from "../Stake/components/StakeArea/components/RebaseTimer/RebaseTimer";
 
@@ -124,11 +154,11 @@ function V1Stake({ setMigrationModalOpen }) {
     // 1st catch if quantity > balance
     let gweiValue = ethers.utils.parseUnits(quantity, "gwei");
     if (action === "stake" && gweiValue.gt(ethers.utils.parseUnits(ohmBalance, "gwei"))) {
-      return dispatch(error("You cannot stake more than your OHM balance."));
+      return dispatch(error("You cannot stake more than your EXO balance."));
     }
 
     if (action === "unstake" && gweiValue.gt(ethers.utils.parseUnits(sohmBalance, "gwei"))) {
-      return dispatch(error("You cannot unstake more than your sOHM balance."));
+      return dispatch(error("You cannot unstake more than your sEXO balance."));
     }
 
     await dispatch(
@@ -138,8 +168,8 @@ function V1Stake({ setMigrationModalOpen }) {
 
   const hasAllowance = useCallback(
     token => {
-      if (token === "ohm") return stakeAllowance > 0;
-      if (token === "sohm") return unstakeAllowance > 0;
+      if (token === "exo") return stakeAllowance > 0;
+      if (token === "sexo") return unstakeAllowance > 0;
       return 0;
     },
     [stakeAllowance, unstakeAllowance],
@@ -195,7 +225,7 @@ function V1Stake({ setMigrationModalOpen }) {
               <Metric
                 className="stake-index"
                 label={`${t`Current Index`} (v1)`}
-                metric={`${formattedCurrentIndex} OHM`}
+                metric={`${formattedCurrentIndex} EXO`}
                 isLoading={currentIndex ? false : true}
               />
             </MetricCollection>
@@ -208,7 +238,7 @@ function V1Stake({ setMigrationModalOpen }) {
                   <ConnectButton />
                 </div>
                 <Typography variant="h6">
-                  <Trans>Connect your wallet to stake OHM</Trans>
+                  <Trans>Connect your wallet to stake EXO</Trans>
                 </Typography>
               </div>
             ) : (
@@ -234,7 +264,7 @@ function V1Stake({ setMigrationModalOpen }) {
                         <>
                           {!oldAssetsDetected
                             ? t`All your assets are migrated`
-                            : t`You must complete the migration of your assets to stake additional OHM`}
+                            : t`You must complete the migration of your assets to stake additional EXO`}
                         </>
                       ) : (
                         <br />
@@ -248,9 +278,9 @@ function V1Stake({ setMigrationModalOpen }) {
                         <Box mt={"10px"}>
                           <Typography variant="body1" className="stake-note" color="textSecondary">
                             <>
-                              <Trans>First time unstaking</Trans> <b>sOHM</b>?
+                              <Trans>First time unstaking</Trans> <b>sEXO</b>?
                               <br />
-                              <Trans>Please approve Olympus Dao to use your</Trans> <b>sOHM </b>
+                              <Trans>Please approve Exodus Dao to use your</Trans> <b>sEXO </b>
                               <Trans> for unstaking</Trans>.
                             </>
                           </Typography>
@@ -312,7 +342,7 @@ function V1Stake({ setMigrationModalOpen }) {
                     <TabPanel value={view} index={1}>
                       {isAllowanceDataLoading ? (
                         <Skeleton />
-                      ) : address && hasAllowance("sohm") ? (
+                      ) : address && hasAllowance("sexo") ? (
                         <Button
                           className="stake-button"
                           variant="contained"
@@ -322,7 +352,7 @@ function V1Stake({ setMigrationModalOpen }) {
                             onChangeStake("unstake");
                           }}
                         >
-                          {txnButtonText(pendingTransactions, "unstaking", t`Unstake OHM`)}
+                          {txnButtonText(pendingTransactions, "unstaking", t`Unstake EXO`)}
                         </Button>
                       ) : (
                         <Button
@@ -344,7 +374,7 @@ function V1Stake({ setMigrationModalOpen }) {
                   <DataRow
                     title={`${t`Unstaked Balance`} (v1)`}
                     id="user-balance"
-                    balance={`${trim(Number(ohmBalance), 4)} OHM`}
+                    balance={`${trim(Number(ohmBalance), 4)} EXO`}
                     isLoading={isAppLoading}
                   />
                   <Accordion className="stake-accordion" square>
@@ -352,14 +382,14 @@ function V1Stake({ setMigrationModalOpen }) {
                       <DataRow
                         title={t`Total Staked Balance`}
                         id="user-staked-balance"
-                        balance={`${trimmedBalance} sOHM`}
+                        balance={`${trimmedBalance} sEXO`}
                         isLoading={isAppLoading}
                       />
                     </AccordionSummary>
                     <AccordionDetails>
                       <DataRow
-                        title={`${t`sOHM Balance`} (v1)`}
-                        balance={`${trim(Number(sohmBalance), 4)} sOHM`}
+                        title={`${t`sEXO Balance`} (v1)`}
+                        balance={`${trim(Number(sohmBalance), 4)} sEXO`}
                         indented
                         isLoading={isAppLoading}
                       />
@@ -372,21 +402,21 @@ function V1Stake({ setMigrationModalOpen }) {
                         />
                       )}
                       <DataRow
-                        title={`${t`sOHM Balance`} (v2)`}
-                        balance={`${trim(Number(sohmV2Balance), 4)} sOHM`}
+                        title={`${t`sEXO Balance`} (v2)`}
+                        balance={`${trim(Number(sohmV2Balance), 4)} sEXO`}
                         indented
                         isLoading={isAppLoading}
                       />
                       <DataRow
-                        title={`${t`gOHM Balance`} (v2)`}
-                        balance={`${trim(Number(gOhmBalance), 4)} gOHM`}
+                        title={`${t`gEXO Balance`} (v2)`}
+                        balance={`${trim(Number(gOhmBalance), 4)} gEXO`}
                         indented
                         isLoading={isAppLoading}
                       />
                     </AccordionDetails>
                   </Accordion>
                   <Divider />
-                  <DataRow title={t`Next Reward Amount`} balance={`${nextRewardValue} sOHM`} isLoading={isAppLoading} />
+                  <DataRow title={t`Next Reward Amount`} balance={`${nextRewardValue} sEXO`} isLoading={isAppLoading} />
                   <DataRow
                     title={t`Next Reward Yield`}
                     balance={`${stakingRebasePercentage}%`}

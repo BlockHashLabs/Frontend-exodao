@@ -29,9 +29,9 @@ export const useUnwrapGohm = () => {
 
       if (!balance) throw new Error(t`Please refresh your page and try again`);
 
-      if (_amount.gt(balance)) throw new Error(t`You cannot unwrap more than your gOHM balance`);
+      if (_amount.gt(balance)) throw new Error(t`You cannot unwrap more than your gEXO balance`);
 
-      if (!contract) throw new Error(t`Please switch to the Ethereum network to unwrap your gOHM`);
+      if (!contract) throw new Error(t`Please switch to the Ethereum network to unwrap your gEXO`);
 
       if (!address) throw new Error(t`Please refresh your page and try again`);
 
@@ -45,7 +45,7 @@ export const useUnwrapGohm = () => {
       onSuccess: async (_, amount) => {
         trackGAEvent({
           category: "Wrapping",
-          action: "Unwrap gOHM",
+          action: "Unwrap gEXO",
           value: new DecimalBigNumber(amount, 18).toApproxNumber(),
         });
 
@@ -58,7 +58,7 @@ export const useUnwrapGohm = () => {
 
         await Promise.all(promises);
 
-        dispatch(createInfoToast(t`Successfully unwrapped from gOHM to sOHM`));
+        dispatch(createInfoToast(t`Successfully unwrapped from gEXO to sEXO`));
       },
     },
   );

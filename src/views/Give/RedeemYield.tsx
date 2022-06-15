@@ -41,7 +41,7 @@ export default function RedeemYield() {
   const redeemableBalance: DecimalBigNumber = useMemo(() => {
     if (_useRedeemableBalance.isLoading || _useRedeemableBalance.data === undefined) return new DecimalBigNumber("0");
 
-    return GetCorrectContractUnits(_useRedeemableBalance.data, "gOHM", currentIndex);
+    return GetCorrectContractUnits(_useRedeemableBalance.data, "gEXO", currentIndex);
   }, [_useRedeemableBalance, currentIndex]);
 
   const _useV1RedeemableBalance = useV1RedeemableBalance(address);
@@ -92,7 +92,7 @@ export default function RedeemYield() {
     if (isRedeemYieldModalOpen) setIsRedeemYieldModalOpen(false);
   }, [redeemMutation.isSuccess, oldRedeemMutation.isSuccess]);
 
-  // Get project sOHM yield goal and return as a number
+  // Get project sEXO yield goal and return as a number
   const getRecipientGoal = (address: string): DecimalBigNumber => {
     const project = projectMap.get(address);
     if (project) return new DecimalBigNumber(project.depositGoal.toString());
@@ -105,7 +105,7 @@ export default function RedeemYield() {
   };
 
   /**
-   * Checks that the current user can redeem some quantity of sOHM
+   * Checks that the current user can redeem some quantity of sEXO
    *
    * @returns
    */
@@ -130,7 +130,7 @@ export default function RedeemYield() {
   };
 
   const handleRedeemYieldModalSubmit = async () => {
-    await redeemMutation.mutate({ token: "sOHM" });
+    await redeemMutation.mutate({ token: "sEXO" });
   };
 
   const handleOldRedeemYieldModalSubmit = async () => {
@@ -165,7 +165,7 @@ export default function RedeemYield() {
       )}
       <Grid item xs={12}>
         <Typography variant="h3" align="center" data-testid="redeemable-balance">
-          {isRecipientInfoLoading ? <Skeleton /> : getRedeemableBalance().toString(DECIMAL_FORMAT)} sOHM
+          {isRecipientInfoLoading ? <Skeleton /> : getRedeemableBalance().toString(DECIMAL_FORMAT)} sEXO
         </Typography>
         <Typography variant="body1" align="center" className="subtext">
           Redeemable Yield
@@ -191,7 +191,7 @@ export default function RedeemYield() {
                   {getRecipientGoal(address).toString(DECIMAL_FORMAT)}
                 </Typography>
                 <Typography variant="body1" align="center" className="subtext">
-                  <Trans>sOHM Goal</Trans>
+                  <Trans>sEXO Goal</Trans>
                 </Typography>
               </Box>
             </Grid>
@@ -201,7 +201,7 @@ export default function RedeemYield() {
                   {totalDebt.toString(DECIMAL_FORMAT)}
                 </Typography>
                 <Typography variant="body1" align="center" className="subtext">
-                  {isSmallScreen ? "Total Donated" : `Total sOHM Donated`}
+                  {isSmallScreen ? "Total Donated" : `Total sEXO Donated`}
                 </Typography>
               </Box>
             </Grid>
@@ -215,7 +215,7 @@ export default function RedeemYield() {
                   %
                 </Typography>
                 <Typography variant="body1" align="center" className="subtext">
-                  <Trans>of sOHM Goal</Trans>
+                  <Trans>of sEXO Goal</Trans>
                 </Typography>
               </Box>
             </Grid>
@@ -227,21 +227,21 @@ export default function RedeemYield() {
       <Grid item xs={12}>
         <Box>
           <DataRow
-            title={t`Deposited sOHM`}
+            title={t`Deposited sEXO`}
             // Exact number
-            balance={`${contract === "new" ? totalDebt.toString(NO_DECIMAL_FORMAT) : ZERO_NUMBER} ${t`sOHM`}`}
+            balance={`${contract === "new" ? totalDebt.toString(NO_DECIMAL_FORMAT) : ZERO_NUMBER} ${t`sEXO`}`}
             isLoading={isRecipientInfoLoading}
             data-testid="data-deposited-sohm"
           />
           <DataRow
             title={t`Redeemable Amount`}
-            balance={`${getRedeemableBalance().toString(NO_DECIMAL_FORMAT)} ${t`sOHM`}`}
+            balance={`${getRedeemableBalance().toString(NO_DECIMAL_FORMAT)} ${t`sEXO`}`}
             isLoading={isRecipientInfoLoading}
             data-testid="data-redeemable-balance"
           />
           <DataRow
             title={t`Next Reward Amount`}
-            balance={`${nextRewardValue.toString(DECIMAL_FORMAT)} ${t`sOHM`}`}
+            balance={`${nextRewardValue.toString(DECIMAL_FORMAT)} ${t`sEXO`}`}
             isLoading={isStakingRebaseRateLoading}
             data-testid="data-next-reward-amount"
           />

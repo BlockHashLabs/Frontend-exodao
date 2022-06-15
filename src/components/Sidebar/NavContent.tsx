@@ -1,8 +1,8 @@
+import React, {useEffect, useState} from "react";
 import { t, Trans } from "@lingui/macro";
 import { Box, Link, Paper, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Icon, NavItem } from "@olympusdao/component-library";
-import React from "react";
 import { NavLink } from "react-router-dom";
 import { sortByDiscount } from "src/helpers/bonds/sortByDiscount";
 import { Environment } from "src/helpers/environment/Environment/Environment";
@@ -10,6 +10,9 @@ import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 import { useWeb3Context } from "src/hooks/web3Context";
 import { BondDiscount } from "src/views/Bond/components/BondDiscount";
 import { useLiveBonds } from "src/views/Bond/hooks/useLiveBonds";
+// import useTheme from "../../hooks/useTheme";
+
+import darkLogo from "../../assets/Exodus-Vertical-Logo_2.svg"
 
 import WalletAddressEns from "../TopBar/Wallet/WalletAddressEns";
 
@@ -25,9 +28,31 @@ const StyledBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-const NavContent: React.VFC = () => {
+type NavContentProps = {
+  theme: string;
+};
+
+const NavContent: React.VFC<NavContentProps> = ({theme}) => {
+  const currentTheme = (themeMode) => {
+    switch (themeMode) {
+      case "dark":
+        return "/Exodus_2/Exodus-Vertical-Logo_2.svg"
+      case "light":
+        return "/Exodus_2/Exodus-Vertical-Logo_2_black.svg"
+      case "girth":
+        return "/Exodus_2/Exodus-Vertical-Logo_2_black.svg"
+    
+      default:
+        return "/Exodus_2/Exodus-Vertical-Logo_2.svg"
+    }
+  }
+  const [svgImage, setSvgImage] = useState("/Exodus_2/Exodus-Vertical-Logo_2.svg")
   const { networkId } = useWeb3Context();
   const networks = useTestableNetworks();
+  // const [theme, toggleTheme,mounted, _] = useTheme();
+  // useEffect(() => {
+  //   setSvgImage(currentTheme(theme))
+  // }, [theme]);
 
   return (
     <Paper className="dapp-sidebar">
@@ -35,9 +60,9 @@ const NavContent: React.VFC = () => {
         <div className="dapp-menu-top">
           <Box className="branding-header">
             <Link href="https://olympusdao.finance" target="_blank">
-              <img src="/Exodus_2/Exodus-Vertical-Logo_2.svg" style={{ width: 100, height: 85 }} />
+              <img src={currentTheme(theme)} style={{ width: 100, height: 85 }} />
             </Link>
-
+            {console.log("theme", theme)}
             <WalletAddressEns />
           </Box>
 

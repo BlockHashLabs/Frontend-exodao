@@ -1,16 +1,41 @@
 import "./MigrationModal.scss";
 
-import { t, Trans } from "@lingui/macro";
-import { Box, Button, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { InfoTooltip, Modal, Tab, Tabs } from "@olympusdao/component-library";
 import { useDispatch } from "react-redux";
 import { trim } from "src/helpers";
 import { useMigrationData } from "src/helpers/Migration";
 import { useWeb3Context } from "src/hooks";
-import { changeMigrationApproval, migrateSingle, TokenType } from "src/slices/MigrateThunk";
-import { isPendingTxn, txnButtonText } from "src/slices/PendingTxnsSlice";
+import {
+  changeMigrationApproval,
+  migrateSingle,
+  TokenType,
+} from "src/slices/MigrateThunk";
+import {
+  isPendingTxn,
+  txnButtonText,
+} from "src/slices/PendingTxnsSlice";
 import { AppDispatch } from "src/store";
+
+import {
+  t,
+  Trans,
+} from "@lingui/macro";
+import {
+  Box,
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import {
+  InfoTooltip,
+  Modal,
+  Tab,
+  Tabs,
+} from "@olympusdao/component-library";
 
 function MigrationModalSingle({ open, handleClose }: { open: boolean; handleClose: any }) {
   const dispatch: AppDispatch = useDispatch();
@@ -61,7 +86,7 @@ function MigrationModalSingle({ open, handleClose }: { open: boolean; handleClos
 
   rows = [
     {
-      initialAsset: "OHM",
+      initialAsset: "EXO",
       initialBalance: currentOhmBalance,
       targetAsset: targetAsset,
       targetBalance: ohmAsgOHM * targetMultiplier,
@@ -71,7 +96,7 @@ function MigrationModalSingle({ open, handleClose }: { open: boolean; handleClos
       display: gOHMPrice! * ohmAsgOHM > 10,
     },
     {
-      initialAsset: "sOHM",
+      initialAsset: "sEXO",
       initialBalance: currentSOhmBalance,
       targetAsset: targetAsset,
       targetBalance: sOHMAsgOHM * targetMultiplier,
@@ -81,7 +106,7 @@ function MigrationModalSingle({ open, handleClose }: { open: boolean; handleClos
       display: gOHMPrice! * sOHMAsgOHM > 10,
     },
     {
-      initialAsset: "wsOHM",
+      initialAsset: "wsEXO",
       initialBalance: currentWSOhmBalance,
       targetAsset: targetAsset,
       targetBalance: +currentWSOhmBalance * targetMultiplier,
@@ -138,8 +163,8 @@ function MigrationModalSingle({ open, handleClose }: { open: boolean; handleClos
             aria-label="payout token tabs"
             className="payout-token-tabs"
           >
-            <Tab aria-label="payout-sohm-button" label="sOHM" className="payout-token-tab" />
-            <Tab aria-label="payout-sohm-button" label="gOHM" className="payout-token-tab" />
+            <Tab aria-label="payout-sohm-button" label="sEXO" className="payout-token-tab" />
+            <Tab aria-label="payout-sohm-button" label="gEXO" className="payout-token-tab" />
           </Tabs>
           {isMobileScreen ? (
             <Box id="mobile-container-migration">
@@ -221,7 +246,7 @@ function MigrationModalSingle({ open, handleClose }: { open: boolean; handleClos
                           <Trans>Post-migration</Trans>
                         </Typography>
                         <InfoTooltip
-                          message={t`This is the equivalent amount of gOHM you will have in your wallet once migration is complete.`}
+                          message={t`This is the equivalent amount of gEXO you will have in your wallet once migration is complete.`}
                           children={undefined}
                         ></InfoTooltip>
                       </Box>

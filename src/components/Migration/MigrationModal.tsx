@@ -1,20 +1,47 @@
 import "./MigrationModal.scss";
 
-import { t, Trans } from "@lingui/macro";
-import { Box, Button, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { InfoTooltip, Modal, Tab, Tabs } from "@olympusdao/component-library";
 import { useEffect } from "react";
+
 import { useDispatch } from "react-redux";
 import { NetworkId } from "src/constants";
 import { trim } from "src/helpers";
 import { useMigrationData } from "src/helpers/Migration";
-import { useWeb3Context } from "src/hooks";
-import { useAppSelector } from "src/hooks";
+import {
+  useAppSelector,
+  useWeb3Context,
+} from "src/hooks";
 import { info } from "src/slices/MessagesSlice";
-import { changeMigrationApproval, migrateAll } from "src/slices/MigrateThunk";
-import { isPendingTxn, txnButtonText } from "src/slices/PendingTxnsSlice";
+import {
+  changeMigrationApproval,
+  migrateAll,
+} from "src/slices/MigrateThunk";
+import {
+  isPendingTxn,
+  txnButtonText,
+} from "src/slices/PendingTxnsSlice";
 import { AppDispatch } from "src/store";
+
+import {
+  t,
+  Trans,
+} from "@lingui/macro";
+import {
+  Box,
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import {
+  InfoTooltip,
+  Modal,
+  Tab,
+  Tabs,
+} from "@olympusdao/component-library";
 
 const classes = {
   custom: {
@@ -80,7 +107,7 @@ function MigrationModal({ open, handleClose }: { open: boolean; handleClose: any
 
   rows = [
     {
-      initialAsset: "OHM",
+      initialAsset: "EXO",
       initialBalance: currentOhmBalance,
       targetAsset: targetAsset,
       targetBalance: ohmAsgOHM * targetMultiplier,
@@ -88,7 +115,7 @@ function MigrationModal({ open, handleClose }: { open: boolean; handleClose: any
       usdBalance: ohmInUSD,
     },
     {
-      initialAsset: "sOHM",
+      initialAsset: "sEXO",
       initialBalance: currentSOhmBalance,
       targetAsset: targetAsset,
       targetBalance: sOHMAsgOHM * targetMultiplier,
@@ -96,7 +123,7 @@ function MigrationModal({ open, handleClose }: { open: boolean; handleClose: any
       usdBalance: sOhmInUSD,
     },
     {
-      initialAsset: "wsOHM",
+      initialAsset: "wsEXO",
       initialBalance: currentWSOhmBalance,
       targetAsset: targetAsset,
       targetBalance: +currentWSOhmBalance * targetMultiplier,
@@ -160,8 +187,8 @@ function MigrationModal({ open, handleClose }: { open: boolean; handleClose: any
             aria-label="payout token tabs"
             className="payout-token-tabs"
           >
-            <Tab aria-label="payout-sohm-button" label="sOHM" className="payout-token-tab" />
-            <Tab aria-label="payout-gohm-button" label="gOHM" className="payout-token-tab" />
+            <Tab aria-label="payout-sohm-button" label="sEXO" className="payout-token-tab" />
+            <Tab aria-label="payout-gohm-button" label="gEXO" className="payout-token-tab" />
           </Tabs>
           {isMobileScreen ? (
             <Box id="mobile-container-migration">
@@ -238,7 +265,7 @@ function MigrationModal({ open, handleClose }: { open: boolean; handleClose: any
                           <Trans>Post-migration</Trans>
                         </Typography>
                         <InfoTooltip
-                          message={t`This is the equivalent amount of gOHM you will have in your wallet once migration is complete.`}
+                          message={t`This is the equivalent amount of gEXO you will have in your wallet once migration is complete.`}
                           children={undefined}
                         />
                       </Box>
@@ -323,7 +350,7 @@ function MigrationModal({ open, handleClose }: { open: boolean; handleClose: any
                 <Typography>
                   {isMigrationComplete || !oldAssetsDetected
                     ? "Close"
-                    : txnButtonText(pendingTransactions, "migrate_all", t`Migrate all to ${isGOHM ? "gOHM" : "sOHM"}`)}
+                    : txnButtonText(pendingTransactions, "migrate_all", t`Migrate all to ${isGOHM ? "gEXO" : "sEXO"}`)}
                 </Typography>
               </Box>
             </Button>
@@ -332,7 +359,7 @@ function MigrationModal({ open, handleClose }: { open: boolean; handleClose: any
             <em>
               <Typography variant="body2" style={isMobileScreen ? { lineHeight: "1em" } : {}}>
                 <Trans>
-                  Save on gas fees by migrating all your assets to the new gOHM or sOHM in one transaction. Each asset
+                  Save on gas fees by migrating all your assets to the new gEXO or sEXO in one transaction. Each asset
                   asset above must be approved before all can be migrated.
                 </Trans>
               </Typography>
