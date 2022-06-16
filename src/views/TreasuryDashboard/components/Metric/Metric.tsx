@@ -1,12 +1,6 @@
-import {
-  formatCurrency,
-  formatNumber,
-} from "src/helpers";
+import { formatCurrency, formatNumber } from "src/helpers";
 import { useCurrentIndex } from "src/hooks/useCurrentIndex";
-import {
-  useGohmPrice,
-  useOhmPrice,
-} from "src/hooks/usePrices";
+import { useGohmPrice, useOhmPrice } from "src/hooks/usePrices";
 import {
   useMarketCap,
   useOhmCirculatingSupply,
@@ -87,7 +81,7 @@ export const BackingPerOHM: React.FC<AbstractedMetricProps> = props => {
   const _props: MetricProps = {
     ...props,
     label: t`Liquid Backing per EXO`,
-    tooltip: t`Liquid Treasury Backing does not include LP OHM, locked assets, or reserves used for RFV backing. It represents the budget the Treasury has for specific market operations which cannot use OHM (inverse bonds, some liquidity provision, OHM incentives, etc)
+    tooltip: t`Liquid Treasury Backing does not include LP EXO, locked assets, or reserves used for RFV backing. It represents the budget the Treasury has for specific market operations which cannot use EXO (inverse bonds, some liquidity provision, EXO incentives, etc)
     `,
   };
 
@@ -103,10 +97,10 @@ export const CurrentIndex: React.FC<AbstractedMetricProps> = props => {
   const _props: MetricProps = {
     ...props,
     label: t`Current Index`,
-    tooltip: t`The current index tracks the amount of sOHM accumulated since the beginning of staking. Basically, how much sOHM one would have if they staked and held 1 OHM from launch.`,
+    tooltip: t`The current index tracks the amount of sEXO accumulated since the beginning of staking. Basically, how much sEXO one would have if they staked and held 1 EXO from launch.`,
   };
 
-  if (currentIndex) _props.metric = `${currentIndex.toString({ decimals: 2, trim: false, format: true })} sOHM`;
+  if (currentIndex) _props.metric = `${currentIndex.toString({ decimals: 2, trim: false, format: true })} sEXO`;
   else _props.isLoading = true;
 
   return <Metric {..._props} />;

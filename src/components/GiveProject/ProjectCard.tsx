@@ -1,10 +1,6 @@
 import "./ProjectCard.scss";
 
-import {
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import MarkdownIt from "markdown-it";
 import Countdown from "react-countdown";
@@ -15,27 +11,13 @@ import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber"
 import { isSupportedChain } from "src/helpers/GiveHelpers";
 import { useAppDispatch } from "src/hooks";
 import { useCurrentIndex } from "src/hooks/useCurrentIndex";
-import {
-  useDonationInfo,
-  useDonorNumbers,
-  useRecipientInfo,
-  useTotalYieldDonated,
-} from "src/hooks/useGiveInfo";
+import { useDonationInfo, useDonorNumbers, useRecipientInfo, useTotalYieldDonated } from "src/hooks/useGiveInfo";
 import { useWeb3Context } from "src/hooks/web3Context";
 import { ChangeAssetType } from "src/slices/interfaces";
 import { error } from "src/slices/MessagesSlice";
-import {
-  GIVE_MAX_DECIMAL_FORMAT,
-  GIVE_MAX_DECIMALS,
-} from "src/views/Give/constants";
-import {
-  GetCorrectContractUnits,
-  GetCorrectStaticUnits,
-} from "src/views/Give/helpers/GetCorrectUnits";
-import {
-  useDecreaseGive,
-  useIncreaseGive,
-} from "src/views/Give/hooks/useEditGive";
+import { GIVE_MAX_DECIMAL_FORMAT, GIVE_MAX_DECIMALS } from "src/views/Give/constants";
+import { GetCorrectContractUnits, GetCorrectStaticUnits } from "src/views/Give/helpers/GetCorrectUnits";
+import { useDecreaseGive, useIncreaseGive } from "src/views/Give/hooks/useEditGive";
 import { useGive } from "src/views/Give/hooks/useGive";
 import {
   CancelCallback,
@@ -47,31 +29,11 @@ import {
 import { ManageDonationModal } from "src/views/Give/ManageDonationModal";
 import { RecipientModal } from "src/views/Give/RecipientModal";
 
-import {
-  t,
-  Trans,
-} from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import { ChevronLeft } from "@mui/icons-material";
-import {
-  Container,
-  Grid,
-  LinearProgress,
-  Link,
-  Skeleton,
-  Tooltip,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
-import {
-  styled,
-  useTheme,
-} from "@mui/material/styles";
-import {
-  Icon,
-  Paper,
-  PrimaryButton,
-  TertiaryButton,
-} from "@olympusdao/component-library";
+import { Container, Grid, LinearProgress, Link, Skeleton, Tooltip, Typography, useMediaQuery } from "@mui/material";
+import { styled, useTheme } from "@mui/material/styles";
+import { Icon, Paper, PrimaryButton, TertiaryButton } from "@olympusdao/component-library";
 
 const PREFIX = "ProjectCard";
 
@@ -534,7 +496,7 @@ export default function ProjectCard({ project, giveAssetType, changeAssetType, m
    */
   const handleProjectDetailsButtonClick = (source: string) => {
     ReactGA.event({
-      category: "Olympus Give",
+      category: "ExoDAO Give",
       action: "View Project",
       label: title,
       dimension1: address ?? "unknown",

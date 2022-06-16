@@ -1,9 +1,5 @@
 import { t } from "@lingui/macro";
-import {
-  Grid,
-  Skeleton,
-  Typography,
-} from "@mui/material";
+import { Grid, Skeleton, Typography } from "@mui/material";
 import { Icon } from "@olympusdao/component-library";
 
 type EducationGraphicProps = {
@@ -139,7 +135,7 @@ export function LargeWallet() {
       icon={<Icon name="vault-wallet" fontSize="large" />}
       title={t`Wallet`}
       subtitle={t`Deposit sEXO from wallet`}
-      subtext={t`Olympus Give is a means of directing the yield that is accrued on your sEXO to another wallet. The first step is depositing your sEXO and specifying a recipient.`}
+      subtext={t`ExoDAO Give is a means of directing the yield that is accrued on your sEXO to another wallet. The first step is depositing your sEXO and specifying a recipient.`}
     />
   );
 }
