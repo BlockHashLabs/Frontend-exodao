@@ -11,7 +11,7 @@ export interface IUARecipientData {
 
 export const trackGiveRedeemEvent = (uaData: IUARecipientData, eventAction?: string) => {
   trackGAEvent({
-    category: "Olympus Give",
+    category: "ExoDAO Give",
     action: eventAction ? eventAction : uaData.type ? uaData.type : "unknown",
     label: getGiveProjectName(uaData.address, "unknown"),
     value: Math.round(parseFloat(uaData.value)),
