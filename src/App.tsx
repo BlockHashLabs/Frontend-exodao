@@ -3,7 +3,7 @@ import "./style.scss";
 
 import { i18n } from "@lingui/core";
 import { useMediaQuery } from "@mui/material";
-import CssBaseline from "@mui/material/CssBaseline";
+import { CssBaseline } from "@mui/material";
 import { styled, ThemeProvider } from "@mui/material/styles";
 import { MultifarmProvider } from "@multifarm/widget";
 import { useCallback, useEffect, useState } from "react";
@@ -182,7 +182,7 @@ function App() {
       setWalletChecked(true);
     }
     if (shouldTriggerSafetyCheck()) {
-      dispatch(info("Safety Check: Always verify you're on app.olympusdao.finance!"));
+      dispatch(info("Safety Check: Always verify you're on app.exodao.finance!"));
     }
   }, []);
 
