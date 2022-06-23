@@ -1,7 +1,18 @@
+import { NavLink as RouterLink } from "react-router-dom";
+
 import { t, Trans } from "@lingui/macro";
-import { Box, SwipeableDrawer, Typography } from "@mui/material";
+import { Box, SwipeableDrawer, Typography, Link } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { Icon, OHMTokenProps, PrimaryButton, SecondaryButton, TabBar, Token } from "@olympusdao/component-library";
+import {
+  Icon,
+  OHMTokenProps,
+  PrimaryButton,
+  SecondaryButton,
+  TabBar,
+  Tabs,
+  Tab,
+  Token,
+} from "@olympusdao/component-library";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { shorten } from "src/helpers";
@@ -145,14 +156,25 @@ export function Wallet(props: { open?: boolean; component?: string }) {
               />
             </Box>
           </Box>
-          <TabBar
+          <Tabs centered style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+            <Link to="/wallet" component={RouterLink}>
+              <Tab label={t`Wallet`} />
+            </Link>
+            <Link to="/utility" component={RouterLink}>
+              <Tab label={t`Utility`} />
+            </Link>
+            <Link to="/info" component={RouterLink}>
+              <Tab label={t`Info`} />
+            </Link>
+          </Tabs>
+          {/* <TabBar
             items={[
               { label: "Wallet", to: "/wallet" },
               { label: "Utility", to: "/utility" },
               { label: "Info", to: "/info" },
             ]}
             mb={"18px"}
-          />
+          /> */}
         </Box>
         <Box
           style={{
