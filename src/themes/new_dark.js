@@ -29,7 +29,7 @@ export const darkTheme = {
     radial-gradient(circle at 11% 100%, rgba(4,39,66), rgba(131, 165, 203, 0) 30%)
     `,
   paperBg: "linear-gradient(237.43deg, #042742 -12.81%, #042742 132.72%)",
-  paperBorder: "#fff", //"#323232",
+  paperBorder: "#323232",
   modalBg: "#24242699",
   popoverBg: "rgba(4,39,66)",
   menuBg: "linear-gradient(237.43deg, #042742 -12.81%, #042742 132.72%)",
@@ -44,7 +44,7 @@ export const darkTheme = {
   secondaryButtonHoverBG: "rgb(17, 153, 250)", //"rgba(54, 56, 64, 1)",
   outlinedPrimaryButtonHoverBG: "rgb(17, 153, 250)", //"#F8CC82",
   outlinedPrimaryButtonHoverColor: "rgb(17, 153, 250)", //"#333333",
-  outlinedSecondaryButtonHoverBG: "rgb(17, 153, 250)", //"transparent",
+  outlinedSecondaryButtonHoverBG: "transparent",
   outlinedSecondaryButtonHoverColor: "rgb(17, 153, 250)", //"#F8CC82", //gold
   containedSecondaryButtonHoverBG: "rgb(17, 153, 250)", //"rgba(8, 15, 53, 1)",
   graphStrokeColor: "rgba(8, 15, 53, 1)",
@@ -122,8 +122,8 @@ const colors = {
   primary: {
     300: "rgb(17, 153, 250)",
     100: "rgb(17, 153, 250)",
-    "300/A75": "#1199fa",
-    "300/A50": "#1199fa",
+    "300/A75": "rgba(248, 204, 130,0.75)",
+    "300/A50": "rgba(248, 204, 130,0.5)",
   },
 };
 
@@ -167,10 +167,11 @@ export const dark = responsiveFontSizes(
         },
         components: {
           MuiCssBaseline: {
+            // background:${darkTheme.background};
             styleOverrides: `
             ${fonts}
             body {
-              background:${darkTheme.background};
+             
               background-color: ${darkTheme.backgroundColor};
               background-repeat:no-repeat;
               background-attachment:fixed;
@@ -306,7 +307,6 @@ export const dark = responsiveFontSizes(
                   textUnderlineOffset: "5px",
                   "&:hover": {
                     color: colors.gray[10],
-                    // backgroundColor: "rgb(17, 153, 250) !important",
                   },
                 },
                 "&:hover": {

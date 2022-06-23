@@ -2,11 +2,7 @@ import "./Give.scss";
 
 import { useState } from "react";
 
-import {
-  Outlet,
-  Route,
-  Routes,
-} from "react-router";
+import { Outlet, Route, Routes } from "react-router";
 import { NavLink as RouterLink } from "react-router-dom";
 import { isSupportedChain } from "src/helpers/GiveHelpers";
 import { useV1RedeemableBalance } from "src/hooks/useGiveInfo";
@@ -14,19 +10,10 @@ import { useWeb3Context } from "src/hooks/web3Context";
 import { ChangeAssetType } from "src/slices/interfaces";
 
 import { t } from "@lingui/macro";
-import {
-  Grid,
-  Link,
-  Typography,
-} from "@mui/material";
+import { Grid, Link, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import {
-  Paper,
-  Tab,
-  TabPanel,
-  Tabs,
-} from "@olympusdao/component-library";
+import { Paper, Tab, TabPanel, Tabs } from "@olympusdao/component-library";
 
 import CausesDashboard from "./CausesDashboard";
 import { GiveInfo } from "./GiveInfo";
@@ -69,7 +56,7 @@ function Give({ selectedIndex = 0 }) {
                 >
                   {!isSupportedChain(networkId) ? (
                     <Typography variant="h6">
-                      Note: You are currently using an unsupported network. Please switch to Ethereum to experience the
+                      Note: You are currently using an unsupported network. Please switch to Cronos to experience the
                       full functionality.
                     </Typography>
                   ) : (
