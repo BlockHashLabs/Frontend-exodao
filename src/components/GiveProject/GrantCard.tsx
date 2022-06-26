@@ -2,39 +2,23 @@ import "react-step-progress-bar/styles.css";
 // We import this AFTER the styles for react-step-progress-bar, so that we can override it
 import "./GrantCard.scss";
 
-import {
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import MarkdownIt from "markdown-it";
 import ReactGA from "react-ga";
-import {
-  ProgressBar,
-  Step,
-} from "react-step-progress-bar";
-import {
-  Grant,
-  RecordType,
-} from "src/components/GiveProject/project.type";
+import { ProgressBar, Step } from "react-step-progress-bar";
+import { Grant, RecordType } from "src/components/GiveProject/project.type";
 import { DecimalBigNumber } from "src/helpers/DecimalBigNumber/DecimalBigNumber";
 import { isSupportedChain } from "src/helpers/GiveHelpers";
 import { useAppDispatch } from "src/hooks";
 import { useCurrentIndex } from "src/hooks/useCurrentIndex";
-import {
-  useDonationInfo,
-  useDonorNumbers,
-} from "src/hooks/useGiveInfo";
+import { useDonationInfo, useDonorNumbers } from "src/hooks/useGiveInfo";
 import { useWeb3Context } from "src/hooks/web3Context";
 import { ChangeAssetType } from "src/slices/interfaces";
 import { error } from "src/slices/MessagesSlice";
 import { GIVE_MAX_DECIMAL_FORMAT } from "src/views/Give/constants";
 import { GetCorrectContractUnits } from "src/views/Give/helpers/GetCorrectUnits";
-import {
-  useDecreaseGive,
-  useIncreaseGive,
-} from "src/views/Give/hooks/useEditGive";
+import { useDecreaseGive, useIncreaseGive } from "src/views/Give/hooks/useEditGive";
 import { useGive } from "src/views/Give/hooks/useGive";
 import {
   CancelCallback,
@@ -46,26 +30,11 @@ import {
 import { ManageDonationModal } from "src/views/Give/ManageDonationModal";
 import { RecipientModal } from "src/views/Give/RecipientModal";
 
-import {
-  t,
-  Trans,
-} from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import { ChevronLeft } from "@mui/icons-material";
-import {
-  Box,
-  Container,
-  Grid,
-  Link,
-  Skeleton,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Container, Grid, Link, Skeleton, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import {
-  Icon,
-  Paper,
-  PrimaryButton,
-} from "@olympusdao/component-library";
+import { Icon, Paper, PrimaryButton } from "@olympusdao/component-library";
 
 export enum GrantDetailsMode {
   Card = "Card",
@@ -450,7 +419,7 @@ export default function GrantCard({ grant, giveAssetType, changeAssetType, mode 
    */
   const handleGrantDetailsButtonClick = (source: string) => {
     ReactGA.event({
-      category: "Olympus Give",
+      category: "ExoDAO Give",
       action: "View Grants Project",
       label: title,
       dimension1: address ?? "unknown",

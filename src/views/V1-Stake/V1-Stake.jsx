@@ -1,33 +1,18 @@
 import "../Stake/Stake.scss";
 import "./V1-Stake.scss";
 
-import {
-  useCallback,
-  useState,
-} from "react";
+import { useCallback, useState } from "react";
 
 import { ethers } from "ethers";
-import {
-  useDispatch,
-  useSelector,
-} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {
-  LearnMoreButton,
-  MigrateButton,
-} from "src/components/CallToAction/CallToAction";
+import { LearnMoreButton, MigrateButton } from "src/components/CallToAction/CallToAction";
 import ConnectButton from "src/components/ConnectButton/ConnectButton";
 import { useOldAssetsDetected } from "src/hooks/useOldAssetsDetected";
 import { useWeb3Context } from "src/hooks/web3Context";
-import {
-  isPendingTxn,
-  txnButtonText,
-} from "src/slices/PendingTxnsSlice";
+import { isPendingTxn, txnButtonText } from "src/slices/PendingTxnsSlice";
 
-import {
-  t,
-  Trans,
-} from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import { ExpandMore } from "@mui/icons-material";
 import {
   Accordion,
@@ -44,28 +29,14 @@ import {
   Skeleton,
   Typography,
 } from "@mui/material";
-import {
-  DataRow,
-  Metric,
-  MetricCollection,
-  Paper,
-  Tab,
-  TabPanel,
-  Tabs,
-} from "@olympusdao/component-library";
+import { DataRow, Metric, MetricCollection, Paper, Tab, TabPanel, Tabs } from "@olympusdao/component-library";
 
 import { trim } from "../../helpers";
 import { DecimalBigNumber } from "../../helpers/DecimalBigNumber/DecimalBigNumber";
-import {
-  useGohmBalance,
-  useSohmBalance,
-} from "../../hooks/useBalance";
+import { useGohmBalance, useSohmBalance } from "../../hooks/useBalance";
 import { useTestableNetworks } from "../../hooks/useTestableNetworks";
 import { error } from "../../slices/MessagesSlice";
-import {
-  changeApproval,
-  changeStake,
-} from "../../slices/StakeThunk";
+import { changeApproval, changeStake } from "../../slices/StakeThunk";
 import { ExternalStakePools } from "../Stake/components/ExternalStakePools/ExternalStakePools";
 import RebaseTimer from "../Stake/components/StakeArea/components/RebaseTimer/RebaseTimer";
 
@@ -274,7 +245,7 @@ function V1Stake({ setMigrationModalOpen }) {
 
                   <Box className="stake-action-row v1-row " display="flex" alignItems="center">
                     {address && !isAllowanceDataLoading ? (
-                      !hasAllowance("sohm") && view === 1 ? (
+                      !hasAllowance("sexo") && view === 1 ? (
                         <Box mt={"10px"}>
                           <Typography variant="body1" className="stake-note" color="textSecondary">
                             <>
@@ -361,7 +332,7 @@ function V1Stake({ setMigrationModalOpen }) {
                           color="primary"
                           disabled={isPendingTxn(pendingTransactions, "approve_unstaking")}
                           onClick={() => {
-                            onSeekApproval("sohm");
+                            onSeekApproval("sexo");
                           }}
                         >
                           {txnButtonText(pendingTransactions, "approve_unstaking", t`Approve`)}

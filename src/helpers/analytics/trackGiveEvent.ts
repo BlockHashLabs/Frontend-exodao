@@ -12,7 +12,7 @@ export interface IUAData {
 
 export const trackGiveEvent = (uaData: IUAData, eventAction?: string) => {
   trackGAEvent({
-    category: "Olympus Give",
+    category: "ExoDAO Give",
     action: eventAction ? eventAction : uaData.type ? uaData.type : "unknown",
     label: getGiveProjectName(uaData.recipient, "unknown"),
     value: Math.round(parseFloat(uaData.value)),

@@ -8,7 +8,7 @@ const multifarmLightTheme = extendTheme(olympusTheme, {
   },
   tabs: {
     background: {
-      primary: "#F8CC82",
+      primary: "rgb(17, 153, 250)",
       secondary: "#F0F0F0",
     },
     text: {
@@ -39,7 +39,7 @@ const multifarmDarkTheme = extendTheme(olympusDarkTheme, {
   },
   tabs: {
     background: {
-      primary: "#F8CC82",
+      primary: "rgb(17, 153, 250)",
       secondary: "#1D2026",
     },
     text: {

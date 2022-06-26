@@ -2,15 +2,15 @@ import { switchClasses, tabClasses } from "@mui/material";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import { deepmerge } from "@mui/utils";
 
-import lightLogo from "../assets/Exodus-Vertical-Logo_2.svg"
+import lightLogo from "../assets/Exodus-Vertical-Logo_2.svg";
 
 import fonts from "./fonts";
 import commonSettings, { handleBackdropFilter } from "./global.js";
 
 export const lightTheme = {
-  logo:lightLogo,
+  logo: lightLogo,
   color: "#181A1D",
-  gold: "#F8CC82",
+  gold: "rgb(17, 153, 250)",
   gray: "#A3A3A3",
   blueish_gray: "#676B74",
   textHighlightColor: "#93AEBC", // "#F4D092",
@@ -27,6 +27,7 @@ export const lightTheme = {
   activeLinkColor: "#222222",
   activeLinkSvgColor: "invert(64%) sepia(11%) saturate(934%) hue-rotate(157deg) brightness(90%) contrast(86%)",
   // primaryButtonBG: "#759AAE",
+  // primaryButtonHoverBG: "rgb(17, 153, 250)", //"#EDD8B4",
   primaryButtonBG: "#93AEBC",
   primaryButtonHoverBG: "#759AAE",
   // these need fixing
@@ -65,7 +66,7 @@ const colors = {
     10: "#FAFAFB",
   },
   primary: {
-    300: "#F8CC82",
+    300: "rgb(17, 153, 250)",
     100: "#EAD8B8",
     "300/A75": " rgba(248, 204, 130,0.75)",
     "300/A50": " rgba(248, 204, 130,0.5)",

@@ -50,7 +50,19 @@ const InfoContainer = () => {
   return (
     <Root>
       <Fade in>
-        <Box display="flex" flexDirection="row" className={classes.tabNav} pt="18px" mb="18px">
+        <div
+          style={{
+            display: "flex",
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center",
+            // backgroundColor: "tomato",
+            marginTop: "25px",
+          }}
+        >
+          <h3>Coming soon</h3>
+        </div>
+        {/* <Box display="flex" flexDirection="row" className={classes.tabNav} pt="18px" mb="18px">
           {Environment.isWalletNewsEnabled() && (
             <Link component={NavLink} to="/info/news">
               News
@@ -64,11 +76,9 @@ const InfoContainer = () => {
           <Link component={NavLink} to="/info/faq">
             FAQ
           </Link>
-        </Box>
+        </Box> */}
       </Fade>
-
       {pathname === "/info" && <Navigate to={Environment.isWalletNewsEnabled() ? "news" : "proposals"} />}
-
       <Outlet />
     </Root>
   );

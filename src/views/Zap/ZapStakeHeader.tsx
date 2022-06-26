@@ -33,9 +33,9 @@ const ZapStakeHeader: React.FC<ZapStakeHeaderProps> = ({ images }) => {
         {isSmallScreen ? (
           <Grid item xs={6} sm={4}>
             <Box alignItems="center" display="flex" flexDirection="column">
-              <TokenStack tokens={["sOHM", "zap"]} />
+              <TokenStack tokens={["sEXO", "zap"]} />
               <Typography color="textSecondary">
-                <Trans>Swap for sOHM</Trans>
+                <Trans>Swap for sEXO</Trans>
               </Typography>
             </Box>
           </Grid>
@@ -45,13 +45,13 @@ const ZapStakeHeader: React.FC<ZapStakeHeaderProps> = ({ images }) => {
               <Box alignItems="center" display="flex" flexDirection="column" marginX={1}>
                 <Token name="zap" style={{ marginBottom: "16px" }} />
                 <Typography color="textSecondary">
-                  <Trans>Swap for OHM</Trans>
+                  <Trans>Swap for EXO</Trans>
                 </Typography>
               </Box>
             </Grid>
             <Grid item xs={12} sm={4}>
               <Box alignItems="center" display="flex" flexDirection="column" marginX={1}>
-                <TokenStack tokens={["sOHM", "wsOHM"]} style={{ marginBottom: "16px" }} />
+                <TokenStack tokens={["sEXO", "wsEXO"]} style={{ marginBottom: "16px" }} />
                 <Typography color="textSecondary">
                   <Trans>Auto staked</Trans>
                 </Typography>
