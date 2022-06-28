@@ -1,8 +1,10 @@
 import { t } from "@lingui/macro";
 import { useTheme } from "@mui/material/styles";
+import { useEffect } from "react";
 import Chart from "src/components/Chart/Chart";
 import { formatCurrency, trim } from "src/helpers";
 import { useProtocolMetrics } from "src/hooks/useProtocolMetrics";
+import { useProtocolTest } from "../../../../hooks/useProtocolMetrics";
 
 import { bulletpoints, itemType, tooltipInfoMessages, tooltipItems } from "../../treasuryData";
 
@@ -11,6 +13,7 @@ export const Graph = ({ children }) => <>{children}</>;
 export const TotalValueDepositedGraph = () => {
   const theme = useTheme();
   const { data } = useProtocolMetrics();
+  // const datas = useProtocolTest();
 
   return (
     <Chart
@@ -25,7 +28,9 @@ export const TotalValueDepositedGraph = () => {
       infoTooltipMessage={tooltipInfoMessages().tvl}
       expandedGraphStrokeColor={theme.palette.graphStrokeColor}
       headerSubText={`${data && formatCurrency(data[0].totalValueLocked)}`}
-    />
+    >
+      {/* {console.log(datas)} */}
+    </Chart>
   );
 };
 
@@ -151,7 +156,7 @@ export const OHMStakedGraph = () => {
       bulletpointColors={bulletpoints.staked}
       infoTooltipMessage={tooltipInfoMessages().staked}
       expandedGraphStrokeColor={theme.palette.graphStrokeColor}
-      headerSubText={`${staked && trim(staked[0].staked, 2)}% `}
+      // headerSubText={`${staked && trim(staked[0].staked, 2)}% `} uncomment when we have thegraph
     />
   );
 };

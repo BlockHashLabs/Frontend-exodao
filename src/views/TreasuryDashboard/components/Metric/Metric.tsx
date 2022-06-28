@@ -39,7 +39,7 @@ export const OHMPrice: React.FC<AbstractedMetricProps> = props => {
     label: "EXO " + t`Price`,
   };
 
-  if (ohmPrice) _props.metric = formatCurrency(ohmPrice, 2);
+  if (ohmPrice) _props.metric = formatCurrency(0, 2); //formatCurrency(ohmPrice, 2)
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
@@ -53,7 +53,7 @@ export const SOHMPrice: React.FC<AbstractedMetricProps> = props => {
     label: "sEXO " + t`Price`,
   };
 
-  if (ohmPrice) _props.metric = formatCurrency(ohmPrice, 2);
+  if (ohmPrice) _props.metric = formatCurrency(0, 2); //formatCurrency(ohmPrice, 2)
   else _props.isLoading = true;
 
   return <Metric {..._props} />;
@@ -101,7 +101,10 @@ export const CurrentIndex: React.FC<AbstractedMetricProps> = props => {
   };
 
   if (currentIndex) _props.metric = `${currentIndex.toString({ decimals: 2, trim: false, format: true })} sEXO`;
-  else _props.isLoading = true;
+  else {
+    // _props.isLoading = true
+    _props.metric = `0 sEXO`;
+  }
 
   return <Metric {..._props} />;
 };
@@ -119,7 +122,10 @@ export const GOHMPrice: React.FC<AbstractedMetricProps> = props => {
   };
 
   if (gOhmPrice) _props.metric = formatCurrency(gOhmPrice, 2);
-  else _props.isLoading = true;
+  else {
+    // _props.isLoading = true
+    _props.metric = `0 gEXO`;
+  }
 
   return <Metric {..._props} />;
 };
@@ -151,7 +157,10 @@ export const StakingAPY: React.FC<AbstractedMetricProps> = props => {
     const formatted = formatNumber(apy, 1);
 
     _props.metric = `${formatted}%`;
-  } else _props.isLoading = true;
+  } else {
+    // _props.isLoading = true
+    _props.metric = `0 %`;
+  }
 
   return <Metric {..._props} />;
 };
