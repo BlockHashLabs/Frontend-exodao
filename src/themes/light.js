@@ -13,7 +13,7 @@ export const lightTheme = {
   gold: "rgb(17, 153, 250)",
   gray: "#A3A3A3",
   blueish_gray: "#676B74",
-  textHighlightColor: "#93AEBC", // "#F4D092",
+  textHighlightColor: "rgb(17, 153, 250)", //"#93AEBC", // "#F4D092",
   backgroundColor: "#AFCDE9",
   // background:
   // "radial-gradient(circle at 25% 0%, rgba(227,255,240,.5), rgba(227,255,240,0) 50%), radial-gradient(circle at 80% 80%, rgba(131,165,203,.5), rgba(131,165,203,0) 50%)",
@@ -23,21 +23,21 @@ export const lightTheme = {
   popoverBg: "rgba(255, 255, 255, 0.95)",
   menuBg: handleBackdropFilter("rgba(255, 255, 255, 0.5)"),
   backdropBg: "rgba(200, 200, 200, 0.4)",
-  largeTextColor: "#759AAE",
-  activeLinkColor: "#222222",
+  largeTextColor: "rgb(17, 153, 250", //"#759AAE",
+  activeLinkColor: "rgb(17, 153, 250", //"#222222",
   activeLinkSvgColor: "invert(64%) sepia(11%) saturate(934%) hue-rotate(157deg) brightness(90%) contrast(86%)",
   // primaryButtonBG: "#759AAE",
   // primaryButtonHoverBG: "rgb(17, 153, 250)", //"#EDD8B4",
-  primaryButtonBG: "#93AEBC",
-  primaryButtonHoverBG: "#759AAE",
+  primaryButtonBG: "rgb(17, 153, 250)", //"#93AEBC",
+  primaryButtonHoverBG: "rgb(17, 153, 250)", //"#759AAE",
   // these need fixing
-  primaryButtonHoverColor: "#333333",
-  secondaryButtonHoverBG: "rgba(54, 56, 64, 1)",
-  outlinedPrimaryButtonHoverBG: "#F8CC82",
-  outlinedPrimaryButtonHoverColor: "#333333",
-  outlinedSecondaryButtonHoverBG: "#FCFCFC",
-  outlinedSecondaryButtonHoverColor: "#333333",
-  containedSecondaryButtonHoverBG: "#333333",
+  primaryButtonHoverColor: "rgb(17, 153, 250)", //"#333333",
+  secondaryButtonHoverBG: "rgb(17, 153, 250", //"rgba(54, 56, 64, 1)",
+  outlinedPrimaryButtonHoverBG: "rgb(17, 153, 250", //"#F8CC82",
+  outlinedPrimaryButtonHoverColor: "rgb(17, 153, 250)", //"#333333",
+  outlinedSecondaryButtonHoverBG: "rgb(17, 153, 250)", //"#FCFCFC",
+  outlinedSecondaryButtonHoverColor: "rgb(17, 153, 250)", //"#333333",
+  containedSecondaryButtonHoverBG: "rgb(17, 153, 250", //"#333333",
   graphStrokeColor: "rgba(37, 52, 73, .2)",
   gridButtonHoverBackground: "rgba(118, 130, 153, 0.2)",
   gridButtonActiveBackground: "rgba(118, 130, 153, 0.7)",
@@ -67,9 +67,9 @@ const colors = {
   },
   primary: {
     300: "rgb(17, 153, 250)",
-    100: "#EAD8B8",
-    "300/A75": " rgba(248, 204, 130,0.75)",
-    "300/A50": " rgba(248, 204, 130,0.5)",
+    100: "rgb(17, 153, 250)", //"#EAD8B8",
+    "300/A75": "#1199fa", //" rgba(248, 204, 130,0.75)",
+    "300/A50": "#1199fa", //" rgba(248, 204, 130,0.5)",
   },
 };
 
@@ -204,11 +204,11 @@ export const light = responsiveFontSizes(
                   color: lightTheme.textHighlightColor,
                   textDecoration: "none",
                   "&.active": {
-                    color: lightTheme.color,
+                    color: lightTheme.textHighlightColor,
                   },
                 },
                 "&.active": {
-                  color: lightTheme.color,
+                  color: lightTheme.textHighlightColor,
                   textDecoration: "underline",
                 },
                 "@media (hover:none)": {
@@ -253,18 +253,22 @@ export const light = responsiveFontSizes(
             styleOverrides: {
               textColorPrimary: {
                 color: lightTheme.blueish_gray,
+                // "&:hover": {
+                //   color: lightTheme.textHighlightColor,
+                // },
                 [`&.${tabClasses["selected"]}`]: {
                   color: lightTheme.color,
                 },
               },
               root: {
                 "&.Mui-selected": {
+                  // color: lightTheme.textHighlightColor,
                   textDecoration: "underline",
                   textUnderlineOffset: "5px",
                 },
                 "&:hover": {
-                  color: colors.gray[500],
-                  textDecoration: "underline",
+                  color: lightTheme.textHighlightColor,
+                  textDecoration: "none",
                   textUnderlineOffset: "5px",
                 },
               },
@@ -439,3 +443,353 @@ export const light = responsiveFontSizes(
     ),
   ),
 );
+
+// export const light = responsiveFontSizes(
+//   createTheme(
+//     deepmerge(
+//       {
+//         colors,
+//         palette: {
+//           mode: "dark",
+//           contrastText: lightTheme.color,
+//           primary: {
+//             main: lightTheme.color,
+//           },
+//           neutral: {
+//             main: lightTheme.color,
+//             secondary: lightTheme.gray,
+//           },
+//           text: {
+//             primary: lightTheme.color,
+//             secondary: lightTheme.gray,
+//           },
+//           graphStrokeColor: lightTheme.graphStrokeColor,
+//           highlight: lightTheme.textHighlightColor,
+//           error: {
+//             main: colors.feedback.error,
+//             dark: colors.feedback.error,
+//           },
+//           info: {
+//             main: colors.feedback.userFeedback,
+//             dark: colors.feedback.userFeedback,
+//           },
+//           success: {
+//             main: colors.feedback.success,
+//             dark: colors.feedback.success,
+//           },
+//           warning: {
+//             main: colors.feedback.warning,
+//             dark: colors.feedback.warning,
+//           },
+//         },
+//         components: {
+//           MuiCssBaseline: {
+//             styleOverrides: `
+//             ${fonts}
+//             body {
+//               background:${lightTheme.background};
+//               background-color: ${lightTheme.backgroundColor};
+//               background-repeat:no-repeat;
+//               background-attachment:fixed;
+//               font-size:0.75rem;
+//               font-weight:400;
+//             }
+//             `,
+//           },
+//           MuiSwitch: {
+//             styleOverrides: {
+//               colorPrimary: {
+//                 color: lightTheme.color,
+//                 [`&.${switchClasses["checked"]}`]: {
+//                   color: lightTheme.gold,
+//                   [`& + ${switchClasses["track"]}`]: {
+//                     backgroundColor: lightTheme.color,
+//                     borderColor: lightTheme.color,
+//                   },
+//                 },
+//               },
+//               track: {
+//                 border: `1px solid ${lightTheme.color}`,
+//                 backgroundColor: lightTheme.switchBg,
+//               },
+//             },
+//           },
+//           MuiAlert: {
+//             styleOverrides: {
+//               root: {
+//                 backgroundImage: "none",
+//               },
+//             },
+//           },
+//           MuiDrawer: {
+//             styleOverrides: {
+//               paper: {
+//                 background: lightTheme.paperBg,
+//                 zIndex: 7,
+//               },
+//             },
+//           },
+//           MuiTabs: {
+//             styleOverrides: {
+//               root: {
+//                 "& .MuiLink-root.active": {
+//                   color: lightTheme.gold,
+//                 },
+//               },
+//             },
+//           },
+//           MuiSelect: {
+//             styleOverrides: {
+//               select: {
+//                 color: lightTheme.gold,
+//               },
+//             },
+//           },
+//           MuiPaper: {
+//             styleOverrides: {
+//               root: {
+//                 "&.MuiAccordion-root": {
+//                   background: "transparent",
+//                 },
+//                 background: lightTheme.paperBg,
+//                 "&.ohm-card": {
+//                   background: lightTheme.paperBg,
+//                 },
+//                 "&.ohm-modal": {
+//                   backgroundColor: lightTheme.modalBg,
+//                 },
+//                 "&.MuiPaper-root&.tooltip-container": {
+//                   background: lightTheme.paperBg,
+//                 },
+//                 "&.ohm-menu": {
+//                   background: lightTheme.menuBg,
+//                   backdropFilter: "blur(33px)",
+//                 },
+//                 "&.ohm-popover": {
+//                   backgroundColor: lightTheme.popoverBg,
+//                   color: lightTheme.color,
+//                 },
+//               },
+//             },
+//           },
+//           MuiBackdrop: {
+//             styleOverrides: {
+//               root: {
+//                 background: lightTheme.backdropBg,
+//               },
+//             },
+//           },
+//           MuiLink: {
+//             styleOverrides: {
+//               root: {
+//                 color: lightTheme.color,
+//                 "&:hover": {
+//                   color: lightTheme.textHighlightColor,
+//                   textDecoration: "none",
+//                   "&.active": {
+//                     color: lightTheme.textHighlightColor,
+//                   },
+//                 },
+//                 "&.active": {
+//                   color: lightTheme.textHighlightColor,
+//                   textDecoration: "underline",
+//                 },
+//               },
+//             },
+//           },
+//           MuiTableCell: {
+//             styleOverrides: {
+//               root: {
+//                 color: lightTheme.color,
+//               },
+//             },
+//           },
+//           MuiOutlinedInput: {
+//             styleOverrides: {
+//               notchedOutline: {
+//                 borderColor: lightTheme.gray,
+//               },
+//             },
+//           },
+//           MuiTab: {
+//             styleOverrides: {
+//               textColorPrimary: {
+//                 color: lightTheme.gray,
+//               },
+//               root: {
+//                 "&.Mui-selected": {
+//                   color: colors.primary[300],
+//                   textDecoration: "underline",
+//                   textUnderlineOffset: "5px",
+//                   "&:hover": {
+//                     color: colors.gray[10],
+//                     // backgroundColor: "rgb(17, 153, 250) !important",
+//                   },
+//                 },
+//                 "&:hover": {
+//                   color: colors.primary[300],
+//                   textDecoration: "underline",
+//                   textUnderlineOffset: "5px",
+//                 },
+//               },
+//             },
+//           },
+//           PrivateTabIndicator: {
+//             styleOverrides: {
+//               colorPrimary: {
+//                 backgroundColor: lightTheme.gold,
+//               },
+//             },
+//           },
+//           MuiToggleButton: {
+//             styleOverrides: {
+//               root: {
+//                 background: lightTheme.paperBg,
+//                 "&:hover": {
+//                   color: lightTheme.color,
+//                   backgroundColor: `${lightTheme.containedSecondaryButtonHoverBG} !important`,
+//                 },
+//                 selected: {
+//                   backgroundColor: lightTheme.containedSecondaryButtonHoverBG,
+//                 },
+//                 "@media (hover:none)": {
+//                   "&:hover": {
+//                     color: lightTheme.color,
+//                     background: lightTheme.paperBg,
+//                   },
+//                   "&:focus": {
+//                     color: lightTheme.color,
+//                     background: lightTheme.paperBg,
+//                     borderColor: "transparent",
+//                     outline: "#00000000",
+//                   },
+//                 },
+//               },
+//             },
+//           },
+//           MuiButton: {
+//             styleOverrides: {
+//               containedPrimary: {
+//                 color: lightTheme.primaryButtonColor,
+//                 backgroundColor: lightTheme.gold,
+//                 "&:hover": {
+//                   backgroundColor: lightTheme.textHighlightColor,
+//                   color: lightTheme.primaryButtonHoverColor,
+//                 },
+//                 "&:active": {
+//                   backgroundColor: lightTheme.primaryButtonHoverBG,
+//                   color: lightTheme.primaryButtonHoverColor,
+//                 },
+//                 "@media (hover:none)": {
+//                   color: lightTheme.primaryButtonColor,
+//                   backgroundColor: lightTheme.gold,
+//                   "&:hover": {
+//                     backgroundColor: lightTheme.primaryButtonHoverBG,
+//                   },
+//                 },
+//               },
+//               containedSecondary: {
+//                 background: lightTheme.paperBg,
+//                 color: lightTheme.color,
+//                 "&:hover": {
+//                   backgroundColor: `${lightTheme.containedSecondaryButtonHoverBG} !important`,
+//                 },
+//                 "&:active": {
+//                   backgroundColor: lightTheme.containedSecondaryButtonHoverBG,
+//                 },
+//                 "&:focus": {
+//                   background: lightTheme.paperBg,
+//                 },
+//                 "@media (hover:none)": {
+//                   color: lightTheme.color,
+//                   background: lightTheme.paperBg,
+//                   "&:hover": {
+//                     backgroundColor: `${lightTheme.containedSecondaryButtonHoverBG} !important`,
+//                   },
+//                 },
+//               },
+//               outlinedPrimary: {
+//                 color: lightTheme.gold,
+//                 borderColor: lightTheme.gold,
+//                 "&:hover": {
+//                   color: lightTheme.outlinedPrimaryButtonHoverColor,
+//                   backgroundColor: lightTheme.primaryButtonHoverBG,
+//                 },
+//                 "@media (hover:none)": {
+//                   color: lightTheme.gold,
+//                   borderColor: lightTheme.gold,
+//                   "&:hover": {
+//                     color: lightTheme.outlinedPrimaryButtonHoverColor,
+//                     backgroundColor: `${lightTheme.primaryButtonHoverBG} !important`,
+//                     textDecoration: "none !important",
+//                   },
+//                 },
+//               },
+//               outlinedSecondary: {
+//                 color: lightTheme.color,
+//                 borderColor: lightTheme.color,
+//                 "&:hover": {
+//                   color: lightTheme.outlinedSecondaryButtonHoverColor,
+//                   backgroundColor: lightTheme.outlinedSecondaryButtonHoverBG,
+//                   borderColor: lightTheme.gold,
+//                 },
+//               },
+//               textPrimary: {
+//                 color: "#A3A3A3",
+//                 "&:hover": {
+//                   color: lightTheme.gold,
+//                   backgroundColor: "#00000000",
+//                 },
+//                 "&:active": {
+//                   color: lightTheme.gold,
+//                   borderBottom: lightTheme.gold,
+//                 },
+//               },
+//               textSecondary: {
+//                 color: lightTheme.color,
+//                 "&:hover": {
+//                   color: lightTheme.textHighlightColor,
+//                 },
+//               },
+//             },
+//           },
+//           MuiTypography: {
+//             styleOverrides: {
+//               root: {
+//                 "&.grid-message-typography": {
+//                   color: "#A3A3A3",
+//                 },
+//                 "&.chain-highlight": {
+//                   color: "#DADADA",
+//                 },
+//                 "&.current": {
+//                   color: lightTheme.gold,
+//                 },
+//               },
+//             },
+//           },
+//           MuiGrid: {
+//             styleOverrides: {
+//               root: {
+//                 "&.grid-button": {
+//                   borderColor: `#FFFFFF !important`,
+//                   "&:hover": {
+//                     backgroundColor: lightTheme.gridButtonHoverBackground,
+//                   },
+//                   "&.current": {
+//                     borderColor: `${lightTheme.gold} !important`,
+//                     backgroundColor: lightTheme.gridButtonActiveBackground,
+//                     "&:hover": {
+//                       backgroundColor: lightTheme.gridButtonHoverBackground,
+//                     },
+//                   },
+//                 },
+//               },
+//             },
+//           },
+//         },
+//       },
+//       commonSettings,
+//     ),
+//   ),
+// );

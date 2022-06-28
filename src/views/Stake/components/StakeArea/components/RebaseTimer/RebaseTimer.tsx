@@ -19,7 +19,8 @@ const RebaseTimer: React.FC = () => {
             <Trans>to next rebase</Trans>
           </>
         ) : (
-          <Skeleton width="155px" />
+          // <Skeleton width="155px" /> return when thgraph is added
+          <strong>&nbsp;</strong>
         )}
       </Typography>
     </Box>
