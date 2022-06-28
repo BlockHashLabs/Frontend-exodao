@@ -13,8 +13,11 @@ export const useNextRebaseDate = () => {
   return useQuery<Date, Error>(key, async () => {
     const secondsToRebase = await contract.secondsToNextEpoch();
 
-    const parsedSeconds = parseBigNumber(secondsToRebase, 0);
-
-    return new Date(Date.now() + parsedSeconds * 1000);
+    if (secondsToRebase) {
+      const parsedSeconds = parseBigNumber(secondsToRebase, 0);
+      return new Date(Date.now() + parsedSeconds * 1000);
+    } else {
+      return Date.now();
+    }
   });
 };
