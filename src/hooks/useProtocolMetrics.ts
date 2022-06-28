@@ -90,11 +90,12 @@ export const useProtocolMetrics = <TSelectData = unknown>(select?: (data: Protoc
       const response = await apollo<{ protocolMetrics: ProtocolMetrics[] }>(query);
 
       if (!response) throw new Error("No response from TheGraph");
-
+      console.log("response", response);
       // Convert all strings to numbers
       return response.data.protocolMetrics.map(metric =>
         Object.entries(metric).reduce(
-          (obj, [key, value]) => Object.assign(obj, { [key]: parseFloat(value) }),
+          (obj, [key, value]) =>
+            Object.assign(obj, { [key]: parseFloat(value == "0" ? "0.000000001" : "0.0000000001") }),
           {} as ProtocolMetricsNumbers,
         ),
       );
@@ -109,3 +110,4 @@ export const useTotalValueDeposited = () => useProtocolMetrics(metrics => metric
 export const useTreasuryMarketValue = () => useProtocolMetrics(metrics => metrics[0].treasuryMarketValue);
 export const useTreasuryTotalBacking = () => useProtocolMetrics(metrics => metrics[0].treasuryTotalBacking);
 export const useOhmCirculatingSupply = () => useProtocolMetrics(metrics => metrics[0].ohmCirculatingSupply);
+export const useProtocolTest = () => useProtocolMetrics(metrics => metrics[0]);

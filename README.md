@@ -355,8 +355,9 @@ _**TODO**: TheGraph implementation/how/why we use it._
 Commits to the follow branches are automatically deployed to their respective URLs.
 | Branch | URL |
 | --- | --- |
-| master | <https://app.olympusdao.finance> |
-| deploy | <https://staging.olympusdao.finance> |
+| main | <https://app.exodao.finance> |
+
+<!-- | deploy | <https://staging.olympusdao.finance> | -->
 
 **Pull Requests**:
 Each PR into master will get its own custom URL that is visible on the PR page. QA & validate changes on that URL before merging into the deploy branch.
