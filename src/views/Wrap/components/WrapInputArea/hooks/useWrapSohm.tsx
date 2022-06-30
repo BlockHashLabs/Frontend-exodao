@@ -31,7 +31,7 @@ export const useWrapSohm = () => {
 
       if (_amount.gt(balance)) throw new Error(t`You cannot wrap more than your sEXO balance`);
 
-      if (!contract) throw new Error(t`Please switch to the Ethereum network to wrap your sEXO`);
+      if (!contract) throw new Error(t`Please switch to the Cronos network to wrap your sEXO`);
 
       if (!address) throw new Error(t`Please refresh your page and try again`);
 

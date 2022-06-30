@@ -93,7 +93,7 @@ const StyledDiv = styled("div")(({ theme }) => ({
 const DEBUG = false;
 
 // 🛰 providers
-if (DEBUG) console.log("📡 Connecting to Mainnet Ethereum");
+if (DEBUG) console.log("📡 Connecting to Mainnet Cronos");
 // 🔭 block explorer URL
 // const blockExplorer = targetNetwork.blockExplorer;
 

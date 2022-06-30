@@ -189,7 +189,7 @@ export function RecipientModal({
   const checkIsWalletAddressValid = (value: string) => {
     if (!isAddress(value)) {
       setIsWalletAddressValid(false);
-      setIsWalletAddressValidError(t`Please enter a valid Ethereum address`);
+      setIsWalletAddressValidError(t`Please enter a valid Cronos address`);
       return;
     }
 

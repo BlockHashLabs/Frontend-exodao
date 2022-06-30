@@ -8,6 +8,9 @@ import { isSupportedChain } from "src/helpers/GiveHelpers";
 import { useV1RedeemableBalance } from "src/hooks/useGiveInfo";
 import { useWeb3Context } from "src/hooks/web3Context";
 import { ChangeAssetType } from "src/slices/interfaces";
+import { NETWORKS } from "src/constants";
+import { NetworkId } from "src/networkDetails";
+import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 
 import { t } from "@lingui/macro";
 import { Grid, Link, Typography } from "@mui/material";
@@ -25,9 +28,15 @@ import RedeemYield from "./RedeemYield";
 import YieldRecipients from "./YieldRecipients";
 
 function Give({ selectedIndex = 0 }) {
+  const networks = useTestableNetworks();
+
+  // const { networkId } = useWeb3Context();
+
   const [giveAssetType, setGiveAssetType] = useState<"sEXO" | "gEXO">("sEXO");
 
   const { address, networkId } = useWeb3Context();
+
+  // const isMainnet = networkId === networks.MAINNET; //remove
 
   const v1RedeemableBalance = useV1RedeemableBalance(address);
   const hasV1Assets = v1RedeemableBalance.data && v1RedeemableBalance.data != "0.0";
@@ -42,6 +51,7 @@ function Give({ selectedIndex = 0 }) {
   return (
     <>
       <Routes>
+        {/* {console.log("test", NETWORKS)} */}
         <Route
           path="/"
           element={

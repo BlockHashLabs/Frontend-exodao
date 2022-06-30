@@ -3,24 +3,10 @@ import { useWeb3Context } from "src/hooks";
 import { useTestableNetworks } from "src/hooks/useTestableNetworks";
 
 import { t } from "@lingui/macro";
-import {
-  Box,
-  Divider,
-  Grid,
-  Link,
-  Typography,
-} from "@mui/material";
-import {
-  Icon,
-  MetricCollection,
-  Paper,
-} from "@olympusdao/component-library";
+import { Box, Divider, Grid, Link, Typography } from "@mui/material";
+import { Icon, MetricCollection, Paper } from "@olympusdao/component-library";
 
-import {
-  CurrentIndex,
-  GOHMPrice,
-  SOHMPrice,
-} from "../TreasuryDashboard/components/Metric/Metric";
+import { CurrentIndex, GOHMPrice, SOHMPrice } from "../TreasuryDashboard/components/Metric/Metric";
 import { MigrateInputArea } from "./components/MigrateInputArea/MigrateInputArea";
 import { WrapBalances } from "./components/WrapBalances";
 import { WrapInputArea } from "./components/WrapInputArea/WrapInputArea";
