@@ -13,7 +13,7 @@ export const WrapSwitchNetwork = () => {
   const { networkId } = useWeb3Context();
   const isMainnet = networkId === networks.MAINNET;
 
-  if (isMainnet)
+  if (!isMainnet)
     return (
       <>
         <Typography variant="h6" style={{ margin: "15px 0 10px 0" }}>
