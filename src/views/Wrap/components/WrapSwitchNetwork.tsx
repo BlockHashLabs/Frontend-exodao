@@ -17,19 +17,20 @@ export const WrapSwitchNetwork = () => {
     return (
       <>
         <Typography variant="h6" style={{ margin: "15px 0 10px 0" }}>
-          Back to Ethereum Mainnet
+          Back to Cronos Mainnet
         </Typography>
 
         <Button onClick={() => mutate(NetworkId.MAINNET)} variant="outlined" color="secondary">
           <img
             height="28px"
             width="28px"
-            src={String(NETWORKS[NetworkId.MAINNET].image)}
-            alt={NETWORKS[NetworkId.MAINNET].imageAltText}
+            src={String(NETWORKS[NetworkId.TESTNET_CRO].image)}
+            alt={NETWORKS[NetworkId.TESTNET_CRO].imageAltText}
           />
 
           <Typography variant="h6" style={{ marginLeft: "8px" }}>
-            {NETWORKS[NetworkId.MAINNET].chainName}
+            {NETWORKS[NetworkId.TESTNET_CRO].chainName}
+            {/* change to mainnet in prod */}
           </Typography>
         </Button>
       </>
