@@ -156,7 +156,7 @@ export function Wallet(props: { open?: boolean; component?: string }) {
               />
             </Box>
           </Box>
-          <Tabs centered style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+          {/* <Tabs centered style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
             <Link to="/wallet" component={RouterLink}>
               <Tab label={t`Wallet`} />
             </Link>
@@ -166,15 +166,15 @@ export function Wallet(props: { open?: boolean; component?: string }) {
             <Link to="/info" component={RouterLink}>
               <Tab label={t`Info`} />
             </Link>
-          </Tabs>
-          {/* <TabBar
+          </Tabs> */}
+          <TabBar
             items={[
               { label: "Wallet", to: "/wallet" },
               { label: "Utility", to: "/utility" },
               { label: "Info", to: "/info" },
             ]}
             mb={"18px"}
-          /> */}
+          />
         </Box>
         <Box
           style={{

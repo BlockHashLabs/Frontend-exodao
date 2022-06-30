@@ -2,6 +2,7 @@ import arbitrum from "./assets/arbitrum.png";
 import avalanche from "./assets/tokens/AVAX.svg";
 import polygon from "./assets/tokens/matic.svg";
 import ethereum from "./assets/tokens/wETH.svg";
+import cronos from "./assets/tokens/logo-cronos-white.svg";
 import { Providers } from "./helpers/providers/Providers/Providers";
 
 export enum NetworkId {
@@ -296,8 +297,8 @@ export const NETWORKS: { [key: number]: INetwork } = {
       decimals: 18,
     },
     rpcUrls: [""],
-    blockExplorerUrls: ["https://etherscan.io/#/"],
-    image: ethereum,
+    blockExplorerUrls: ["https://cronoscan.com/#/"],
+    image: cronos,
     imageAltText: "Cronos Logo",
     uri: () => Providers.getProviderUrl(NetworkId.MAINNET),
   },
@@ -310,9 +311,9 @@ export const NETWORKS: { [key: number]: INetwork } = {
       decimals: 18,
     },
     rpcUrls: [""],
-    blockExplorerUrls: ["https://etherscan.io/#/"],
-    image: ethereum,
-    imageAltText: "Ethereum Logo",
+    blockExplorerUrls: ["https://cronoscan.com/#/"],
+    image: cronos,
+    imageAltText: "Cronos Logo",
     uri: () => Providers.getProviderUrl(NetworkId.TESTNET_KOVAN),
   },
   [NetworkId.TESTNET_KOVAN]: {

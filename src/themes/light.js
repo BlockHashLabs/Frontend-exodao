@@ -333,6 +333,12 @@ export const light = responsiveFontSizes(
           },
           MuiButton: {
             styleOverrides: {
+              root: {
+                "&:hover": {
+                  backgroundColor: `${lightTheme.primaryButtonBG} !important`,
+                  color: "#000 !important",
+                },
+              },
               containedPrimary: {
                 color: "#FCFCFC",
                 backgroundColor: lightTheme.primaryButtonBG,
