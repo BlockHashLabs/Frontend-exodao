@@ -294,14 +294,20 @@ export const dark = responsiveFontSizes(
               },
             },
           },
+          MuiTabs: {
+            styleOverrides: {},
+          },
           MuiTab: {
             styleOverrides: {
               textColorPrimary: {
                 color: darkTheme.gray,
               },
               root: {
+                selected: {
+                  backgroundColor: "blue",
+                },
                 "&.Mui-selected": {
-                  color: colors.primary[300],
+                  color: "tomato", //colors.primary[300],
                   textDecoration: "underline",
                   textUnderlineOffset: "5px",
                   "&:hover": {
@@ -352,6 +358,12 @@ export const dark = responsiveFontSizes(
           },
           MuiButton: {
             styleOverrides: {
+              root: {
+                "&:hover": {
+                  backgroundColor: `${darkTheme.textHighlightColor} !important`,
+                  color: "#fff !important",
+                },
+              },
               containedPrimary: {
                 color: darkTheme.primaryButtonColor,
                 backgroundColor: darkTheme.gold,
