@@ -42,7 +42,8 @@ export const useStakeToken = (toToken: "sEXO" | "gEXO") => {
       // await ethereum.enable();
 
       // try {
-      const transaction = await contract.stake(address, amount, shouldRebase, claim);
+      // const transaction = await contract.stake(address, amount, shouldRebase, claim);
+      const transaction = await contract.stake(address, parseInt(_amount._value._hex, 16), shouldRebase, claim);
       // } catch (error) {
       //   console.log("address", address);
       //   console.log("amount", amount);
